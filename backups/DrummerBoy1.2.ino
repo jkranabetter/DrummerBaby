@@ -1,14 +1,11 @@
 #include <Metro.h>
 #include <wavTrigger.h>
 
-
 Metro seqMetro(1000);        // Sequencer state machine interval timer
 Metro tripletMetro(1000);
 Metro readAnalogInputs(100);      // Read potentiometer values
 Metro readDigitalInputsHP(50);     //
 Metro readDigitalInputsLP(150);
-
-
 
 //WAV Trigger will only play WAV files formatted as 16-bit, stereo, 44.1kHz, and there can be no meta-data (non-audio data) in the file before the audio data.
 //Make sure the file name starts with a 3 digit number.
