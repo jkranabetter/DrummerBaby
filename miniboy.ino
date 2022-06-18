@@ -299,6 +299,7 @@ class Samples
 
 Samples activeSamples;
 Samples samples_808;
+Samples samples_mixed;
 
 
 
@@ -350,6 +351,23 @@ void setup() {
   samples_808.congamid = 12;
   samples_808.congalow = 13;
 
+    // MIXED SAMPLES SET
+  samples_mixed.hatclosed = 17;
+  samples_mixed.hatopen = 18;
+  samples_mixed.rim = 26;
+  samples_mixed.shaker = 28;
+  samples_mixed.cymbal = 29;
+  
+  samples_mixed.kick = 19;
+  samples_mixed.snare = 22;
+  samples_mixed.clap = 30;
+  samples_mixed.cowbell = 27;
+  
+  samples_mixed.claves = 21;
+  samples_mixed.congahigh = 23;
+  samples_mixed.congamid = 24;
+  samples_mixed.congalow = 25;
+
 
 
   
@@ -359,10 +377,6 @@ void setup() {
   Serial.println("hello world");
 
   delay(100);
-
-  Serial.println(activeSamples.hatclosed);
-  switchSamples(1);
-  Serial.println(activeSamples.hatclosed);
 
 //  word mybuffer = 0;
 //  for (int i = 0; i < 3; i++) {
@@ -437,7 +451,7 @@ void loop() {
 
 void switchSamples(int s){
   if(s == 1) transferSamples(samples_808);
-  if(s == 2) transferSamples(samples_808);
+  if(s == 2) transferSamples(samples_mixed);
   if(s == 3) transferSamples(samples_808);
 }
 
