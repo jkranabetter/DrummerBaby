@@ -2,7 +2,7 @@
 #include <wavTrigger.h>
 #include <AltSoftSerial.h>
 
-Metro seqMetro(1000);        // Sequencer state machine interval timer
+Metro seqMetro(300);        // Sequencer state machine interval timer
 Metro readAnalogInputs(100);      // Read potentiometer values
 Metro readDigitalInputs(100);     // Read switch values
 
@@ -11,245 +11,245 @@ Metro readDigitalInputs(100);     // Read switch values
 wavTrigger wTrig;             // Our WAV Trigger object
 
 //----------------------------------------------------------------------------------PATTERN CREATION-----------------------------------------------------------------------------//
-// Use the congas patterns for toms
-const word hatclosed_p1 PROGMEM = 0b0000000000000000;
-const word hatopen_p1 PROGMEM = 0b0000000000000000;
-const word rim_p1 PROGMEM = 0b0000000000000000;
-const word shaker_p1 PROGMEM = 0b0000000000000000;
-const word cymbal_p1 PROGMEM = 0b0000000000000000;
-const word kick_p1 PROGMEM = 0b0000000000000000;
-const word snare_p1 PROGMEM = 0b0000000000000000;
-const word clap_p1 PROGMEM = 0b0000000000000000;
-const word cowbell_p1 PROGMEM = 0b0000000000000000;
-const word claves_p1 PROGMEM = 0b0000000000000000;
-const word congahigh_p1 PROGMEM = 0b0000000000000000;
-const word congamid_p1 PROGMEM = 0b0000000000000000;
-const word congalow_p1 PROGMEM = 0b0000000000000000;
+// Use the congas patterns for toms too, which you can switch out with the kit selection
+const word hatclosed_p1 PROGMEM  = 0b1010100010101000;
+const word hatopen_p1 PROGMEM    = 0b0000001000000010;
+const word rim_p1 PROGMEM        = 0b0000100000001000;
+const word shaker_p1 PROGMEM     = 0b0000000000000000;
+const word cymbal_p1 PROGMEM     = 0b0000000000000000;
+const word kick_p1 PROGMEM       = 0b1000000100000000;
+const word snare_p1 PROGMEM      = 0b0000000000000000;
+const word clap_p1 PROGMEM       = 0b0000000000000000;
+const word cowbell_p1 PROGMEM    = 0b1001001000000000;
+const word claves_p1 PROGMEM     = 0b0000000000000000;
+const word congahigh_p1 PROGMEM  = 0b0000000000000100;
+const word congamid_p1 PROGMEM   = 0b0000000000000010;
+const word congalow_p1 PROGMEM   = 0b0000000000000001;
 const word pattern1[] PROGMEM = {hatclosed_p1, hatopen_p1, rim_p1, shaker_p1, cymbal_p1, kick_p1, snare_p1, clap_p1, cowbell_p1, claves_p1, congahigh_p1, congamid_p1, congalow_p1};
 
-const word hatclosed_p2 PROGMEM = 0b0000000000000000;
-const word hatopen_p2 PROGMEM = 0b0000000000000000;
-const word rim_p2 PROGMEM = 0b0000000000000000;
-const word shaker_p2 PROGMEM = 0b0000000000000000;
-const word cymbal_p2 PROGMEM = 0b0000000000000000;
-const word kick_p2 PROGMEM = 0b0000000000000000;
-const word snare_p2 PROGMEM = 0b0000000000000000;
-const word clap_p2 PROGMEM = 0b0000000000000000;
-const word cowbell_p2 PROGMEM = 0b0000000000000000;
-const word claves_p2 PROGMEM = 0b0000000000000000;
-const word congahigh_p2 PROGMEM = 0b0000000000000000;
-const word congamid_p2 PROGMEM = 0b0000000000000000;
-const word congalow_p2 PROGMEM = 0b0000000000000000;
+const word hatclosed_p2 PROGMEM  = 0b0000000000000000;
+const word hatopen_p2 PROGMEM    = 0b0000000000000000;
+const word rim_p2 PROGMEM        = 0b0000000000000000;
+const word shaker_p2 PROGMEM     = 0b0000000000000000;
+const word cymbal_p2 PROGMEM     = 0b0000000000000000;
+const word kick_p2 PROGMEM       = 0b0000000000000000;
+const word snare_p2 PROGMEM      = 0b0000000000000000;
+const word clap_p2 PROGMEM       = 0b0000000000000000;
+const word cowbell_p2 PROGMEM    = 0b0000000000000000;
+const word claves_p2 PROGMEM     = 0b0000000000000000;
+const word congahigh_p2 PROGMEM  = 0b0000000000000000;
+const word congamid_p2 PROGMEM   = 0b0000000000000000;
+const word congalow_p2 PROGMEM   = 0b0000000000000000;
 const word pattern2[] PROGMEM = {hatclosed_p2, hatopen_p2, rim_p2, shaker_p2, cymbal_p2, kick_p2, snare_p2, clap_p2, cowbell_p2, claves_p2, congahigh_p2, congamid_p2, congalow_p2};
 
-const word hatclosed_p3 PROGMEM = 0b0000000000000000;
-const word hatopen_p3 PROGMEM = 0b0000000000000000;
-const word rim_p3 PROGMEM = 0b0000000000000000;
-const word shaker_p3 PROGMEM = 0b0000000000000000;
-const word cymbal_p3 PROGMEM = 0b0000000000000000;
-const word kick_p3 PROGMEM = 0b0000000000000000;
-const word snare_p3 PROGMEM = 0b0000000000000000;
-const word clap_p3 PROGMEM = 0b0000000000000000;
-const word cowbell_p3 PROGMEM = 0b0000000000000000;
-const word claves_p3 PROGMEM = 0b0000000000000000;
-const word congahigh_p3 PROGMEM = 0b0000000000000000;
-const word congamid_p3 PROGMEM = 0b0000000000000000;
-const word congalow_p3 PROGMEM = 0b0000000000000000;
+const word hatclosed_p3 PROGMEM  = 0b0000000000000000;
+const word hatopen_p3 PROGMEM    = 0b0000000000000000;
+const word rim_p3 PROGMEM        = 0b0000000000000000;
+const word shaker_p3 PROGMEM     = 0b0000000000000000;
+const word cymbal_p3 PROGMEM     = 0b0000000000000000;
+const word kick_p3 PROGMEM       = 0b0000000000000000;
+const word snare_p3 PROGMEM      = 0b0000000000000000;
+const word clap_p3 PROGMEM       = 0b0000000000000000;
+const word cowbell_p3 PROGMEM    = 0b0000000000000000;
+const word claves_p3 PROGMEM     = 0b0000000000000000;
+const word congahigh_p3 PROGMEM  = 0b0000000000000000;
+const word congamid_p3 PROGMEM   = 0b0000000000000000;
+const word congalow_p3 PROGMEM   = 0b0000000000000000;
 const word pattern3[] PROGMEM = {hatclosed_p3, hatopen_p3, rim_p3, shaker_p3, cymbal_p3, kick_p3, snare_p3, clap_p3, cowbell_p3, claves_p3, congahigh_p3, congamid_p3, congalow_p3};
 
-const word hatclosed_p4 PROGMEM = 0b0000000000000000;
-const word hatopen_p4 PROGMEM = 0b0000000000000000;
-const word rim_p4 PROGMEM = 0b0000000000000000;
-const word shaker_p4 PROGMEM = 0b0000000000000000;
-const word cymbal_p4 PROGMEM = 0b0000000000000000;
-const word kick_p4 PROGMEM = 0b0000000000000000;
-const word snare_p4 PROGMEM = 0b0000000000000000;
-const word clap_p4 PROGMEM = 0b0000000000000000;
-const word cowbell_p4 PROGMEM = 0b0000000000000000;
-const word claves_p4 PROGMEM = 0b0000000000000000;
-const word congahigh_p4 PROGMEM = 0b0000000000000000;
-const word congamid_p4 PROGMEM = 0b0000000000000000;
-const word congalow_p4 PROGMEM = 0b0000000000000000;
+const word hatclosed_p4 PROGMEM  = 0b0000000000000000;
+const word hatopen_p4 PROGMEM    = 0b0000000000000000;
+const word rim_p4 PROGMEM        = 0b0000000000000000;
+const word shaker_p4 PROGMEM     = 0b0000000000000000;
+const word cymbal_p4 PROGMEM     = 0b0000000000000000;
+const word kick_p4 PROGMEM       = 0b0000000000000000;
+const word snare_p4 PROGMEM      = 0b0000000000000000;
+const word clap_p4 PROGMEM       = 0b0000000000000000;
+const word cowbell_p4 PROGMEM    = 0b0000000000000000;
+const word claves_p4 PROGMEM     = 0b0000000000000000;
+const word congahigh_p4 PROGMEM  = 0b0000000000000000;
+const word congamid_p4 PROGMEM   = 0b0000000000000000;
+const word congalow_p4 PROGMEM   = 0b0000000000000000;
 const word pattern4[] PROGMEM = {hatclosed_p4, hatopen_p4, rim_p4, shaker_p4, cymbal_p4, kick_p4, snare_p4, clap_p4, cowbell_p4, claves_p4, congahigh_p4, congamid_p4, congalow_p4};
 
-const word hatclosed_p5 PROGMEM = 0b0000000000000000;
-const word hatopen_p5 PROGMEM = 0b0000000000000000;
-const word rim_p5 PROGMEM = 0b0000000000000000;
-const word shaker_p5 PROGMEM = 0b0000000000000000;
-const word cymbal_p5 PROGMEM = 0b0000000000000000;
-const word kick_p5 PROGMEM = 0b0000000000000000;
-const word snare_p5 PROGMEM = 0b0000000000000000;
-const word clap_p5 PROGMEM = 0b0000000000000000;
-const word cowbell_p5 PROGMEM = 0b0000000000000000;
-const word claves_p5 PROGMEM = 0b0000000000000000;
-const word congahigh_p5 PROGMEM = 0b0000000000000000;
-const word congamid_p5 PROGMEM = 0b0000000000000000;
-const word congalow_p5 PROGMEM = 0b0000000000000000;
+const word hatclosed_p5 PROGMEM  = 0b0000000000000000;
+const word hatopen_p5 PROGMEM    = 0b0000000000000000;
+const word rim_p5 PROGMEM        = 0b0000000000000000;
+const word shaker_p5 PROGMEM     = 0b0000000000000000;
+const word cymbal_p5 PROGMEM     = 0b0000000000000000;
+const word kick_p5 PROGMEM       = 0b0000000000000000;
+const word snare_p5 PROGMEM      = 0b0000000000000000;
+const word clap_p5 PROGMEM       = 0b0000000000000000;
+const word cowbell_p5 PROGMEM    = 0b0000000000000000;
+const word claves_p5 PROGMEM     = 0b0000000000000000;
+const word congahigh_p5 PROGMEM  = 0b0000000000000000;
+const word congamid_p5 PROGMEM   = 0b0000000000000000;
+const word congalow_p5 PROGMEM   = 0b0000000000000000;
 const word pattern5[] PROGMEM = {hatclosed_p5, hatopen_p5, rim_p5, shaker_p5, cymbal_p5, kick_p5, snare_p5, clap_p5, cowbell_p5, claves_p5, congahigh_p5, congamid_p5, congalow_p5};
 
-const word hatclosed_p6 PROGMEM = 0b0000000000000000;
-const word hatopen_p6 PROGMEM = 0b0000000000000000;
-const word rim_p6 PROGMEM = 0b0000000000000000;
-const word shaker_p6 PROGMEM = 0b0000000000000000;
-const word cymbal_p6 PROGMEM = 0b0000000000000000;
-const word kick_p6 PROGMEM = 0b0000000000000000;
-const word snare_p6 PROGMEM = 0b0000000000000000;
-const word clap_p6 PROGMEM = 0b0000000000000000;
-const word cowbell_p6 PROGMEM = 0b0000000000000000;
-const word claves_p6 PROGMEM = 0b0000000000000000;
-const word congahigh_p6 PROGMEM = 0b0000000000000000;
-const word congamid_p6 PROGMEM = 0b0000000000000000;
-const word congalow_p6 PROGMEM = 0b0000000000000000;
+const word hatclosed_p6 PROGMEM  = 0b0000000000000000;
+const word hatopen_p6 PROGMEM    = 0b0000000000000000;
+const word rim_p6 PROGMEM        = 0b0000000000000000;
+const word shaker_p6 PROGMEM     = 0b0000000000000000;
+const word cymbal_p6 PROGMEM     = 0b0000000000000000;
+const word kick_p6 PROGMEM       = 0b0000000000000000;
+const word snare_p6 PROGMEM      = 0b0000000000000000;
+const word clap_p6 PROGMEM       = 0b0000000000000000;
+const word cowbell_p6 PROGMEM    = 0b0000000000000000;
+const word claves_p6 PROGMEM     = 0b0000000000000000;
+const word congahigh_p6 PROGMEM  = 0b0000000000000000;
+const word congamid_p6 PROGMEM   = 0b0000000000000000;
+const word congalow_p6 PROGMEM   = 0b0000000000000000;
 const word pattern6[] PROGMEM = {hatclosed_p6, hatopen_p6, rim_p6, shaker_p6, cymbal_p6, kick_p6, snare_p6, clap_p6, cowbell_p6, claves_p6, congahigh_p6, congamid_p6, congalow_p6};
 
-const word hatclosed_p7 PROGMEM = 0b0000000000000000;
-const word hatopen_p7 PROGMEM = 0b0000000000000000;
-const word rim_p7 PROGMEM = 0b0000000000000000;
-const word shaker_p7 PROGMEM = 0b0000000000000000;
-const word cymbal_p7 PROGMEM = 0b0000000000000000;
-const word kick_p7 PROGMEM = 0b0000000000000000;
-const word snare_p7 PROGMEM = 0b0000000000000000;
-const word clap_p7 PROGMEM = 0b0000000000000000;
-const word cowbell_p7 PROGMEM = 0b0000000000000000;
-const word claves_p7 PROGMEM = 0b0000000000000000;
-const word congahigh_p7 PROGMEM = 0b0000000000000000;
-const word congamid_p7 PROGMEM = 0b0000000000000000;
-const word congalow_p7 PROGMEM = 0b0000000000000000;
+const word hatclosed_p7 PROGMEM  = 0b0000000000000000;
+const word hatopen_p7 PROGMEM    = 0b0000000000000000;
+const word rim_p7 PROGMEM        = 0b0000000000000000;
+const word shaker_p7 PROGMEM     = 0b0000000000000000;
+const word cymbal_p7 PROGMEM     = 0b0000000000000000;
+const word kick_p7 PROGMEM       = 0b0000000000000000;
+const word snare_p7 PROGMEM      = 0b0000000000000000;
+const word clap_p7 PROGMEM       = 0b0000000000000000;
+const word cowbell_p7 PROGMEM    = 0b0000000000000000;
+const word claves_p7 PROGMEM     = 0b0000000000000000;
+const word congahigh_p7 PROGMEM  = 0b0000000000000000;
+const word congamid_p7 PROGMEM   = 0b0000000000000000;
+const word congalow_p7 PROGMEM   = 0b0000000000000000;
 const word pattern7[] PROGMEM = {hatclosed_p7, hatopen_p7, rim_p7, shaker_p7, cymbal_p7, kick_p7, snare_p7, clap_p7, cowbell_p7, claves_p7, congahigh_p7, congamid_p7, congalow_p7};
 
-const word hatclosed_p8 PROGMEM = 0b0000000000000000;
-const word hatopen_p8 PROGMEM = 0b0000000000000000;
-const word rim_p8 PROGMEM = 0b0000000000000000;
-const word shaker_p8 PROGMEM = 0b0000000000000000;
-const word cymbal_p8 PROGMEM = 0b0000000000000000;
-const word kick_p8 PROGMEM = 0b0000000000000000;
-const word snare_p8 PROGMEM = 0b0000000000000000;
-const word clap_p8 PROGMEM = 0b0000000000000000;
-const word cowbell_p8 PROGMEM = 0b0000000000000000;
-const word claves_p8 PROGMEM = 0b0000000000000000;
-const word congahigh_p8 PROGMEM = 0b0000000000000000;
-const word congamid_p8 PROGMEM = 0b0000000000000000;
-const word congalow_p8 PROGMEM = 0b0000000000000000;
+const word hatclosed_p8 PROGMEM  = 0b0000000000000000;
+const word hatopen_p8 PROGMEM    = 0b0000000000000000;
+const word rim_p8 PROGMEM        = 0b0000000000000000;
+const word shaker_p8 PROGMEM     = 0b0000000000000000;
+const word cymbal_p8 PROGMEM     = 0b0000000000000000;
+const word kick_p8 PROGMEM       = 0b0000000000000000;
+const word snare_p8 PROGMEM      = 0b0000000000000000;
+const word clap_p8 PROGMEM       = 0b0000000000000000;
+const word cowbell_p8 PROGMEM    = 0b0000000000000000;
+const word claves_p8 PROGMEM     = 0b0000000000000000;
+const word congahigh_p8 PROGMEM  = 0b0000000000000000;
+const word congamid_p8 PROGMEM   = 0b0000000000000000;
+const word congalow_p8 PROGMEM   = 0b0000000000000000;
 const word pattern8[] PROGMEM = {hatclosed_p8, hatopen_p8, rim_p8, shaker_p8, cymbal_p8, kick_p8, snare_p8, clap_p8, cowbell_p8, claves_p8, congahigh_p8, congamid_p8, congalow_p8};
 
-const word hatclosed_p9 PROGMEM = 0b0000000000000000;
-const word hatopen_p9 PROGMEM = 0b0000000000000000;
-const word rim_p9 PROGMEM = 0b0000000000000000;
-const word shaker_p9 PROGMEM = 0b0000000000000000;
-const word cymbal_p9 PROGMEM = 0b0000000000000000;
-const word kick_p9 PROGMEM = 0b0000000000000000;
-const word snare_p9 PROGMEM = 0b0000000000000000;
-const word clap_p9 PROGMEM = 0b0000000000000000;
-const word cowbell_p9 PROGMEM = 0b0000000000000000;
-const word claves_p9 PROGMEM = 0b0000000000000000;
-const word congahigh_p9 PROGMEM = 0b0000000000000000;
-const word congamid_p9 PROGMEM = 0b0000000000000000;
-const word congalow_p9 PROGMEM = 0b0000000000000000;
+const word hatclosed_p9 PROGMEM  = 0b0000000000000000;
+const word hatopen_p9 PROGMEM    = 0b0000000000000000;
+const word rim_p9 PROGMEM        = 0b0000000000000000;
+const word shaker_p9 PROGMEM     = 0b0000000000000000;
+const word cymbal_p9 PROGMEM     = 0b0000000000000000;
+const word kick_p9 PROGMEM       = 0b0000000000000000;
+const word snare_p9 PROGMEM      = 0b0000000000000000;
+const word clap_p9 PROGMEM       = 0b0000000000000000;
+const word cowbell_p9 PROGMEM    = 0b0000000000000000;
+const word claves_p9 PROGMEM     = 0b0000000000000000;
+const word congahigh_p9 PROGMEM  = 0b0000000000000000;
+const word congamid_p9 PROGMEM   = 0b0000000000000000;
+const word congalow_p9 PROGMEM   = 0b0000000000000000;
 const word pattern9[] PROGMEM = {hatclosed_p9, hatopen_p9, rim_p9, shaker_p9, cymbal_p9, kick_p9, snare_p9, clap_p9, cowbell_p9, claves_p9, congahigh_p9, congamid_p9, congalow_p9};
 
 const word hatclosed_p10 PROGMEM = 0b0000000000000000;
-const word hatopen_p10 PROGMEM = 0b0000000000000000;
-const word rim_p10 PROGMEM = 0b0000000000000000;
-const word shaker_p10 PROGMEM = 0b0000000000000000;
-const word cymbal_p10 PROGMEM = 0b0000000000000000;
-const word kick_p10 PROGMEM = 0b0000000000000000;
-const word snare_p10 PROGMEM = 0b0000000000000000;
-const word clap_p10 PROGMEM = 0b0000000000000000;
-const word cowbell_p10 PROGMEM = 0b0000000000000000;
-const word claves_p10 PROGMEM = 0b0000000000000000;
+const word hatopen_p10 PROGMEM   = 0b0000000000000000;
+const word rim_p10 PROGMEM       = 0b0000000000000000;
+const word shaker_p10 PROGMEM    = 0b0000000000000000;
+const word cymbal_p10 PROGMEM    = 0b0000000000000000;
+const word kick_p10 PROGMEM      = 0b0000000000000000;
+const word snare_p10 PROGMEM     = 0b0000000000000000;
+const word clap_p10 PROGMEM      = 0b0000000000000000;
+const word cowbell_p10 PROGMEM   = 0b0000000000000000;
+const word claves_p10 PROGMEM    = 0b0000000000000000;
 const word congahigh_p10 PROGMEM = 0b0000000000000000;
-const word congamid_p10 PROGMEM = 0b0000000000000000;
-const word congalow_p10 PROGMEM = 0b0000000000000000;
+const word congamid_p10 PROGMEM  = 0b0000000000000000;
+const word congalow_p10 PROGMEM  = 0b0000000000000000;
 const word pattern10[] PROGMEM = {hatclosed_p10, hatopen_p10, rim_p10, shaker_p10, cymbal_p10, kick_p10, snare_p10, clap_p10, cowbell_p10, claves_p10, congahigh_p10, congamid_p10, congalow_p10};
 
 const word hatclosed_p11 PROGMEM = 0b0000000000000000;
-const word hatopen_p11 PROGMEM = 0b0000000000000000;
-const word rim_p11 PROGMEM = 0b0000000000000000;
-const word shaker_p11 PROGMEM = 0b0000000000000000;
-const word cymbal_p11 PROGMEM = 0b0000000000000000;
-const word kick_p11 PROGMEM = 0b0000000000000000;
-const word snare_p11 PROGMEM = 0b0000000000000000;
-const word clap_p11 PROGMEM = 0b0000000000000000;
-const word cowbell_p11 PROGMEM = 0b0000000000000000;
-const word claves_p11 PROGMEM = 0b0000000000000000;
+const word hatopen_p11 PROGMEM   = 0b0000000000000000;
+const word rim_p11 PROGMEM       = 0b0000000000000000;
+const word shaker_p11 PROGMEM    = 0b0000000000000000;
+const word cymbal_p11 PROGMEM    = 0b0000000000000000;
+const word kick_p11 PROGMEM      = 0b0000000000000000;
+const word snare_p11 PROGMEM     = 0b0000000000000000;
+const word clap_p11 PROGMEM      = 0b0000000000000000;
+const word cowbell_p11 PROGMEM   = 0b0000000000000000;
+const word claves_p11 PROGMEM    = 0b0000000000000000;
 const word congahigh_p11 PROGMEM = 0b0000000000000000;
-const word congamid_p11 PROGMEM = 0b0000000000000000;
-const word congalow_p11 PROGMEM = 0b0000000000000000;
+const word congamid_p11 PROGMEM  = 0b0000000000000000;
+const word congalow_p11 PROGMEM  = 0b0000000000000000;
 const word pattern11[] PROGMEM = {hatclosed_p11, hatopen_p11, rim_p11, shaker_p11, cymbal_p11, kick_p11, snare_p11, clap_p11, cowbell_p11, claves_p11, congahigh_p11, congamid_p11, congalow_p11};
 
 const word hatclosed_p12 PROGMEM = 0b0000000000000000;
-const word hatopen_p12 PROGMEM = 0b0000000000000000;
-const word rim_p12 PROGMEM = 0b0000000000000000;
-const word shaker_p12 PROGMEM = 0b0000000000000000;
-const word cymbal_p12 PROGMEM = 0b0000000000000000;
-const word kick_p12 PROGMEM = 0b0000000000000000;
-const word snare_p12 PROGMEM = 0b0000000000000000;
-const word clap_p12 PROGMEM = 0b0000000000000000;
-const word cowbell_p12 PROGMEM = 0b0000000000000000;
-const word claves_p12 PROGMEM = 0b0000000000000000;
+const word hatopen_p12 PROGMEM   = 0b0000000000000000;
+const word rim_p12 PROGMEM       = 0b0000000000000000;
+const word shaker_p12 PROGMEM    = 0b0000000000000000;
+const word cymbal_p12 PROGMEM    = 0b0000000000000000;
+const word kick_p12 PROGMEM      = 0b0000000000000000;
+const word snare_p12 PROGMEM     = 0b0000000000000000;
+const word clap_p12 PROGMEM      = 0b0000000000000000;
+const word cowbell_p12 PROGMEM   = 0b0000000000000000;
+const word claves_p12 PROGMEM    = 0b0000000000000000;
 const word congahigh_p12 PROGMEM = 0b0000000000000000;
-const word congamid_p12 PROGMEM = 0b0000000000000000;
-const word congalow_p12 PROGMEM = 0b0000000000000000;
+const word congamid_p12 PROGMEM  = 0b0000000000000000;
+const word congalow_p12 PROGMEM  = 0b0000000000000000;
 const word pattern12[] PROGMEM = {hatclosed_p12, hatopen_p12, rim_p12, shaker_p12, cymbal_p12, kick_p12, snare_p12, clap_p12, cowbell_p12, claves_p12, congahigh_p12, congamid_p12, congalow_p12};
 
 const word hatclosed_p13 PROGMEM = 0b0000000000000000;
-const word hatopen_p13 PROGMEM = 0b0000000000000000;
-const word rim_p13 PROGMEM = 0b0000000000000000;
-const word shaker_p13 PROGMEM = 0b0000000000000000;
-const word cymbal_p13 PROGMEM = 0b0000000000000000;
-const word kick_p13 PROGMEM = 0b0000000000000000;
-const word snare_p13 PROGMEM = 0b0000000000000000;
-const word clap_p13 PROGMEM = 0b0000000000000000;
-const word cowbell_p13 PROGMEM = 0b0000000000000000;
-const word claves_p13 PROGMEM = 0b0000000000000000;
+const word hatopen_p13 PROGMEM   = 0b0000000000000000;
+const word rim_p13 PROGMEM       = 0b0000000000000000;
+const word shaker_p13 PROGMEM    = 0b0000000000000000;
+const word cymbal_p13 PROGMEM    = 0b0000000000000000;
+const word kick_p13 PROGMEM      = 0b0000000000000000;
+const word snare_p13 PROGMEM     = 0b0000000000000000;
+const word clap_p13 PROGMEM      = 0b0000000000000000;
+const word cowbell_p13 PROGMEM   = 0b0000000000000000;
+const word claves_p13 PROGMEM    = 0b0000000000000000;
 const word congahigh_p13 PROGMEM = 0b0000000000000000;
-const word congamid_p13 PROGMEM = 0b0000000000000000;
-const word congalow_p13 PROGMEM = 0b0000000000000000;
+const word congamid_p13 PROGMEM  = 0b0000000000000000;
+const word congalow_p13 PROGMEM  = 0b0000000000000000;
 const word pattern13[] PROGMEM = {hatclosed_p13, hatopen_p13, rim_p13, shaker_p13, cymbal_p13, kick_p13, snare_p13, clap_p13, cowbell_p13, claves_p13, congahigh_p13, congamid_p13, congalow_p13};
 
 const word hatclosed_p14 PROGMEM = 0b0000000000000000;
-const word hatopen_p14 PROGMEM = 0b0000000000000000;
-const word rim_p14 PROGMEM = 0b0000000000000000;
-const word shaker_p14 PROGMEM = 0b0000000000000000;
-const word cymbal_p14 PROGMEM = 0b0000000000000000;
-const word kick_p14 PROGMEM = 0b0000000000000000;
-const word snare_p14 PROGMEM = 0b0000000000000000;
-const word clap_p14 PROGMEM = 0b0000000000000000;
-const word cowbell_p14 PROGMEM = 0b0000000000000000;
-const word claves_p14 PROGMEM = 0b0000000000000000;
+const word hatopen_p14 PROGMEM   = 0b0000000000000000;
+const word rim_p14 PROGMEM       = 0b0000000000000000;
+const word shaker_p14 PROGMEM    = 0b0000000000000000;
+const word cymbal_p14 PROGMEM    = 0b0000000000000000;
+const word kick_p14 PROGMEM      = 0b0000000000000000;
+const word snare_p14 PROGMEM     = 0b0000000000000000;
+const word clap_p14 PROGMEM      = 0b0000000000000000;
+const word cowbell_p14 PROGMEM   = 0b0000000000000000;
+const word claves_p14 PROGMEM    = 0b0000000000000000;
 const word congahigh_p14 PROGMEM = 0b0000000000000000;
-const word congamid_p14 PROGMEM = 0b0000000000000000;
-const word congalow_p14 PROGMEM = 0b0000000000000000;
+const word congamid_p14 PROGMEM  = 0b0000000000000000;
+const word congalow_p14 PROGMEM  = 0b0000000000000000;
 const word pattern14[] PROGMEM = {hatclosed_p14, hatopen_p14, rim_p14, shaker_p14, cymbal_p14, kick_p14, snare_p14, clap_p14, cowbell_p14, claves_p14, congahigh_p14, congamid_p14, congalow_p14};
 
 const word hatclosed_p15 PROGMEM = 0b0000000000000000;
-const word hatopen_p15 PROGMEM = 0b0000000000000000;
-const word rim_p15 PROGMEM = 0b0000000000000000;
-const word shaker_p15 PROGMEM = 0b0000000000000000;
-const word cymbal_p15 PROGMEM = 0b0000000000000000;
-const word kick_p15 PROGMEM = 0b0000000000000000;
-const word snare_p15 PROGMEM = 0b0000000000000000;
-const word clap_p15 PROGMEM = 0b0000000000000000;
-const word cowbell_p15 PROGMEM = 0b0000000000000000;
-const word claves_p15 PROGMEM = 0b0000000000000000;
+const word hatopen_p15 PROGMEM   = 0b0000000000000000;
+const word rim_p15 PROGMEM       = 0b0000000000000000;
+const word shaker_p15 PROGMEM    = 0b0000000000000000;
+const word cymbal_p15 PROGMEM    = 0b0000000000000000;
+const word kick_p15 PROGMEM      = 0b0000000000000000;
+const word snare_p15 PROGMEM     = 0b0000000000000000;
+const word clap_p15 PROGMEM      = 0b0000000000000000;
+const word cowbell_p15 PROGMEM   = 0b0000000000000000;
+const word claves_p15 PROGMEM    = 0b0000000000000000;
 const word congahigh_p15 PROGMEM = 0b0000000000000000;
-const word congamid_p15 PROGMEM = 0b0000000000000000;
-const word congalow_p15 PROGMEM = 0b0000000000000000;
+const word congamid_p15 PROGMEM  = 0b0000000000000000;
+const word congalow_p15 PROGMEM  = 0b0000000000000000;
 const word pattern15[] PROGMEM = {hatclosed_p15, hatopen_p15, rim_p15, shaker_p15, cymbal_p15, kick_p15, snare_p15, clap_p15, cowbell_p15, claves_p15, congahigh_p15, congamid_p15, congalow_p15};
 
 const word hatclosed_p16 PROGMEM = 0b0000000000000000;
-const word hatopen_p16 PROGMEM = 0b0000000000000000;
-const word rim_p16 PROGMEM = 0b0000000000000000;
-const word shaker_p16 PROGMEM = 0b0000000000000000;
-const word cymbal_p16 PROGMEM = 0b0000000000000000;
-const word kick_p16 PROGMEM = 0b0000000000000000;
-const word snare_p16 PROGMEM = 0b0000000000000000;
-const word clap_p16 PROGMEM = 0b0000000000000000;
-const word cowbell_p16 PROGMEM = 0b0000000000000000;
-const word claves_p16 PROGMEM = 0b0000000000000000;
+const word hatopen_p16 PROGMEM   = 0b0000000000000000;
+const word rim_p16 PROGMEM       = 0b0000000000000000;
+const word shaker_p16 PROGMEM    = 0b0000000000000000;
+const word cymbal_p16 PROGMEM    = 0b0000000000000000;
+const word kick_p16 PROGMEM      = 0b0000000000000000;
+const word snare_p16 PROGMEM     = 0b0000000000000000;
+const word clap_p16 PROGMEM      = 0b0000000000000000;
+const word cowbell_p16 PROGMEM   = 0b0000000000000000;
+const word claves_p16 PROGMEM    = 0b0000000000000000;
 const word congahigh_p16 PROGMEM = 0b0000000000000000;
-const word congamid_p16 PROGMEM = 0b0000000000000000;
-const word congalow_p16 PROGMEM = 0b0000000000000000;
+const word congamid_p16 PROGMEM  = 0b0000000000000000;
+const word congalow_p16 PROGMEM  = 0b0000000000000000;
 const word pattern16[] PROGMEM = {hatclosed_p16, hatopen_p16, rim_p16, shaker_p16, cymbal_p16, kick_p16, snare_p16, clap_p16, cowbell_p16, claves_p16, congahigh_p16, congamid_p16, congalow_p16};
 
 // this class contains all the information contained in 1 Drummer Boy bar of music excluding sample volumes which are only stored/restored when saving/loading
@@ -332,6 +332,7 @@ void fill();
 
 
 // ***************************************SETUP*******************************************************
+int counter = 0;
 void setup() {
   
   // SET 808 SAMPLES
@@ -385,64 +386,111 @@ void setup() {
 //    delay(500);
 //  }
 
-  
-//  
-//
 //  pinMode(pauseSwitchPin, INPUT_PULLUP);
 //  pinMode(swingSwitchPin, INPUT_PULLUP);
 //  pinMode(fillButtonPin, INPUT_PULLUP);
-//
-//  delay(500); // wait for the WAV Trigger to finish reset before trying to send commands.
-//  wTrig.start(); // WAV Trigger startup at 57600
-//  delay(10);
-//  wTrig.stopAllTracks();// Send a stop-all command and reset the sample-rate offset, in case we have reset while the WAV Trigger was already playing.
-//  wTrig.samplerateOffset(0); // make sure the pitch is unmodified
-//
-//  // enable track reporting (recieve data from the WAV Trigger)
-//  wTrig.setReporting(true);
-//  delay(100);
-//  // get version/track info from the wav trigger
-//  char gWTrigVersion[VERSION_STRING_LEN];    // WAV Trigger version string
-//  if (wTrig.getVersion(gWTrigVersion, VERSION_STRING_LEN)) {
-//    Serial.print(gWTrigVersion);
-//    Serial.print("\n");
-//    int gNumTracks = wTrig.getNumTracks();
-//    Serial.print("Number of tracks = ");
-//    Serial.println(gNumTracks);
-//  }
-//  else
-//    Serial.print("WAV Trigger response not available");
-//
-//  delay(1000);
-//
-//  readTempo(1); // read vol and tempo values
-//  readVolume(1);
-//  wTrig.trackPlayPoly(200);   // play startup sound
 
+  delay(500); // wait for the WAV Trigger to finish reset before trying to send commands.
+  wTrig.start(); // WAV Trigger startup at 57600
+  delay(10);
+  wTrig.stopAllTracks();// Send a stop-all command and reset the sample-rate offset, in case we have reset while the WAV Trigger was already playing.
+  wTrig.samplerateOffset(0); // make sure the pitch is unmodified
+
+  // enable track reporting (recieve data from the WAV Trigger)
+  wTrig.setReporting(true);
+  delay(100);
+  // get version/track info from the wav trigger
+  char gWTrigVersion[VERSION_STRING_LEN];    // WAV Trigger version string
+  if (wTrig.getVersion(gWTrigVersion, VERSION_STRING_LEN)) {
+    Serial.print(gWTrigVersion);
+    Serial.print("\n");
+    int gNumTracks = wTrig.getNumTracks();
+    Serial.print("Number of tracks = ");
+    Serial.println(gNumTracks);
+  }
+  else
+    Serial.print("WAV Trigger response not available");
+
+  delay(1000);
+
+  readTempo(1); // read vol and tempo values
+//  readVolume(1);
+  wTrig.masterGain(4); // set vol for testing
+
+
+  switchSamples(1);
+  switchPattern(1);
 }
 
 //------------------------------------------------------------------------------------MAIN LOOP------------------------------------------------------------------------//
 
 void loop() {
 
+//  activePattern
+//  activeSamples
+
   if (!pauseOn) {
     if (seqMetro.check() == 1) {
-      setSwing();
-      for (int i = 0; i < 8 ; i++) {
-        wTrig.trackPlayPoly(11);
-      }
-    }
-    
-    if (fillOn) fill();
+//      setSwing();
+      Serial.println(beatMaster);
+      int inverseMaster = 15 - beatMaster;
+      Serial.println(inverseMaster);
 
-  } else {
-    if (digitalRead(pauseSwitchPin) == HIGH && pauseOn) {
-      pauseOn = false;
-      seqMetro.reset();
-      startAtBeat0();
+      
+      boolean activeHatClosed = bitRead(activePattern.hatclosed, inverseMaster);
+      boolean activeHatOpen = bitRead(activePattern.hatopen, inverseMaster);
+      boolean activeRim = bitRead(activePattern.rim, inverseMaster);
+      boolean activeShaker = bitRead(activePattern.shaker, inverseMaster);
+      boolean activeCymbal = bitRead(activePattern.cymbal, inverseMaster);
+
+      boolean activeKick = bitRead(activePattern.kick, inverseMaster);
+      boolean activeCSnare = bitRead(activePattern.snare, inverseMaster);
+      boolean activeClap = bitRead(activePattern.clap, inverseMaster);
+      boolean activeCowbell = bitRead(activePattern.cowbell, inverseMaster);
+
+      boolean activeClaves = bitRead(activePattern.claves, inverseMaster);
+      boolean activeCongaHigh = bitRead(activePattern.congahigh, inverseMaster);
+      boolean activeCongaMid = bitRead(activePattern.congamid, inverseMaster);
+      boolean activeCongaLow = bitRead(activePattern.congalow, inverseMaster);
+
+      if(activeHatClosed){
+        wTrig.trackPlayPoly(activeSamples.hatclosed);
+        Serial.println("\tplaying hat");
+      }
+      if(activeHatOpen) wTrig.trackPlayPoly(activeSamples.hatopen);
+      if(activeRim) wTrig.trackPlayPoly(activeSamples.rim);
+      if(activeShaker) wTrig.trackPlayPoly(activeSamples.shaker);
+      if(activeCymbal) wTrig.trackPlayPoly(activeSamples.cymbal);
+
+      if(activeKick) wTrig.trackPlayPoly(activeSamples.kick);
+      if(activeCSnare) wTrig.trackPlayPoly(activeSamples.snare);
+      if(activeClap) wTrig.trackPlayPoly(activeSamples.clap);
+      if(activeCowbell) wTrig.trackPlayPoly(activeSamples.cowbell);
+
+      if(activeClaves) wTrig.trackPlayPoly(activeSamples.claves);
+      if(activeCongaHigh) wTrig.trackPlayPoly(activeSamples.congahigh);
+      if(activeCongaMid) wTrig.trackPlayPoly(activeSamples.congamid);
+      if(activeCongaLow) wTrig.trackPlayPoly(activeSamples.congalow);
+
+      Serial.println(activePattern.hatclosed);
+      Serial.println(activeHatClosed);
+      Serial.println();
+
+      
+      incrementBeatCounters();
     }
-    
+    if (fillOn) fill();
   }
+  
+//  
+//  else {
+//    if (digitalRead(pauseSwitchPin) == HIGH && pauseOn) {
+//      pauseOn = false;
+//      seqMetro.reset();
+//      startAtBeat0();
+//    }
+//  }
+
 //  checkDigitalIO();
 //  checkAnalogIO();
 }
@@ -508,15 +556,19 @@ void startAtBeat0() {
 }
 
 void incrementBeatCounters() {
-  beatMaster++;
-}
-
-void setSwing() {
-  if (swingOn) {
-    if (beatMaster % 2 == 1)seqMetro.interval(tempoMS - swingMS);
-    else seqMetro.interval(tempoMS + swingMS);
+  if(beatMaster == 15){
+    beatMaster = 0;
+  }else{
+    beatMaster++;
   }
 }
+
+//void setSwing() {
+//  if (swingOn) {
+//    if (beatMaster % 2 == 1)seqMetro.interval(tempoMS - swingMS);
+//    else seqMetro.interval(tempoMS + swingMS);
+//  }
+//}
 
 //----------------------------------------------------IO SCAN--------------------------------------------------------------------------------/
 //---------------------- Analog -------------------//
@@ -534,7 +586,7 @@ void readVolume(boolean firstCall) {      // read analog input for volume and ma
   if ( abs( volumeLastIntermediate - volumeIntermediate) > 10 || firstCall) {
     volumeLastIntermediate = volumeIntermediate;
     volume = map(volumeIntermediate, 0, 1023, -70, 4);  // -70 to 4 DB is the full range of the wav trigger
-    wTrig.masterGain(volume);
+//    wTrig.masterGain(volume);
     Serial.print("Volume: "); Serial.println(volume);
   }
 }
@@ -547,7 +599,7 @@ void readTempo(boolean firstCall) {
   if ( abs( tempoLastIntermediate - tempoIntermediate ) > 10 || firstCall) {
     tempoLastIntermediate = tempoIntermediate;
     tempoMS = map(tempoIntermediate, 1023, 0, 83, 320);
-    seqMetro.interval(tempoMS);
+//    seqMetro.interval(tempoMS);
     tempoBPM = 60000 / (tempoMS * 4);   /// ms to BPM conversion, the 4 is there because every DB "beat" is actually an eight note
   }
 }
@@ -579,7 +631,7 @@ void readSwingSwitch() {
   }
   if (digitalRead(swingSwitchPin) == HIGH && swingOn) {
     Serial.println("Swing OFF");
-    seqMetro.interval(tempoMS);
+//    seqMetro.interval(tempoMS);
     swingOn = 0;
     swingMS = 0; //reset swing rate to 0 while switch is off
   }

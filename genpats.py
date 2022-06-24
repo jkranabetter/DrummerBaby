@@ -2,7 +2,8 @@ patnames = ['hatclosed', 'hatopen', 'rim', 'shaker', 'cymbal', 'kick', 'snare', 
 
 for number in range(1,17):
     for item in patnames:
-        print(f'const word {item}_p{number} PROGMEM = 0b0000000000000000;')
+        half_string = 'const word ' + item + '_p' +str(number) + ' PROGMEM '
+        print(f'{half_string:33}= 0b0000000000000000;')
 
     assemble_string = 'const word pattern' + str(number) + '[] PROGMEM = {'
     for idx, item in enumerate(patnames):
