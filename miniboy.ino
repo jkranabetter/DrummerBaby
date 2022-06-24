@@ -27,6 +27,21 @@ const word congamid_p1 PROGMEM   = 0b0000000000000010;
 const word congalow_p1 PROGMEM   = 0b0000000000000001;
 const word pattern1[] PROGMEM = {hatclosed_p1, hatopen_p1, rim_p1, shaker_p1, cymbal_p1, kick_p1, snare_p1, clap_p1, cowbell_p1, claves_p1, congahigh_p1, congamid_p1, congalow_p1};
 
+const word hatclosed_p1B PROGMEM = 0b0000000000000000;
+const word hatopen_p1B PROGMEM   = 0b0000000000000000;
+const word rim_p1B PROGMEM       = 0b0000000000000000;
+const word shaker_p1B PROGMEM    = 0b0000000000000000;
+const word cymbal_p1B PROGMEM    = 0b0000000000000000;
+const word kick_p1B PROGMEM      = 0b0000000000000000;
+const word snare_p1B PROGMEM     = 0b0000000000000000;
+const word clap_p1B PROGMEM      = 0b0000000000000000;
+const word cowbell_p1B PROGMEM   = 0b0000000000000000;
+const word claves_p1B PROGMEM    = 0b0000000000000000;
+const word congahigh_p1B PROGMEM = 0b0000000000000000;
+const word congamid_p1B PROGMEM  = 0b0000000000000000;
+const word congalow_p1B PROGMEM  = 0b0000000000000000;
+const word pattern1B[] PROGMEM = {hatclosed_p1B, hatopen_p1B, rim_p1B, shaker_p1B, cymbal_p1B, kick_p1B, snare_p1B, clap_p1B, cowbell_p1B, claves_p1B, congahigh_p1B, congamid_p1B, congalow_p1B};
+
 const word hatclosed_p2 PROGMEM  = 0b0000000000000000;
 const word hatopen_p2 PROGMEM    = 0b0010000000100000;
 const word rim_p2 PROGMEM        = 0b0000000000000000;
@@ -41,6 +56,21 @@ const word congahigh_p2 PROGMEM  = 0b0000000000000000;
 const word congamid_p2 PROGMEM   = 0b0000000000000000;
 const word congalow_p2 PROGMEM   = 0b0000000000000000;
 const word pattern2[] PROGMEM = {hatclosed_p2, hatopen_p2, rim_p2, shaker_p2, cymbal_p2, kick_p2, snare_p2, clap_p2, cowbell_p2, claves_p2, congahigh_p2, congamid_p2, congalow_p2};
+
+const word hatclosed_p2B PROGMEM = 0b0000000000000000;
+const word hatopen_p2B PROGMEM   = 0b0000000000000000;
+const word rim_p2B PROGMEM       = 0b0000000000000000;
+const word shaker_p2B PROGMEM    = 0b0000000000000000;
+const word cymbal_p2B PROGMEM    = 0b0000000000000000;
+const word kick_p2B PROGMEM      = 0b0000000000000000;
+const word snare_p2B PROGMEM     = 0b0000000000000000;
+const word clap_p2B PROGMEM      = 0b0000000000000000;
+const word cowbell_p2B PROGMEM   = 0b0000000000000000;
+const word claves_p2B PROGMEM    = 0b0000000000000000;
+const word congahigh_p2B PROGMEM = 0b0000000000000000;
+const word congamid_p2B PROGMEM  = 0b0000000000000000;
+const word congalow_p2B PROGMEM  = 0b0000000000000000;
+const word pattern2B[] PROGMEM = {hatclosed_p2B, hatopen_p2B, rim_p2B, shaker_p2B, cymbal_p2B, kick_p2B, snare_p2B, clap_p2B, cowbell_p2B, claves_p2B, congahigh_p2B, congamid_p2B, congalow_p2B};
 
 const word hatclosed_p3 PROGMEM  = 0b0000000000000000;
 const word hatopen_p3 PROGMEM    = 0b0000000000000000;
@@ -57,6 +87,21 @@ const word congamid_p3 PROGMEM   = 0b1000000000010000;
 const word congalow_p3 PROGMEM   = 0b0000000000000010;
 const word pattern3[] PROGMEM = {hatclosed_p3, hatopen_p3, rim_p3, shaker_p3, cymbal_p3, kick_p3, snare_p3, clap_p3, cowbell_p3, claves_p3, congahigh_p3, congamid_p3, congalow_p3};
 
+const word hatclosed_p3B PROGMEM = 0b0000000000000000;
+const word hatopen_p3B PROGMEM   = 0b0000000000000000;
+const word rim_p3B PROGMEM       = 0b0000000000000000;
+const word shaker_p3B PROGMEM    = 0b0000000000000000;
+const word cymbal_p3B PROGMEM    = 0b0000000000000000;
+const word kick_p3B PROGMEM      = 0b0000000000000000;
+const word snare_p3B PROGMEM     = 0b0000000000000000;
+const word clap_p3B PROGMEM      = 0b0000000000000000;
+const word cowbell_p3B PROGMEM   = 0b0000000000000000;
+const word claves_p3B PROGMEM    = 0b0000000000000000;
+const word congahigh_p3B PROGMEM = 0b0000000000000000;
+const word congamid_p3B PROGMEM  = 0b0000000000000000;
+const word congalow_p3B PROGMEM  = 0b0000000000000000;
+const word pattern3B[] PROGMEM = {hatclosed_p3B, hatopen_p3B, rim_p3B, shaker_p3B, cymbal_p3B, kick_p3B, snare_p3B, clap_p3B, cowbell_p3B, claves_p3B, congahigh_p3B, congamid_p3B, congalow_p3B};
+
 const word hatclosed_p4 PROGMEM  = 0b0000000000000000;
 const word hatopen_p4 PROGMEM    = 0b0000000000000000;
 const word rim_p4 PROGMEM        = 0b0000000000000000;
@@ -71,6 +116,21 @@ const word congahigh_p4 PROGMEM  = 0b0000000000000000;
 const word congamid_p4 PROGMEM   = 0b0000000000000000;
 const word congalow_p4 PROGMEM   = 0b0000000000000000;
 const word pattern4[] PROGMEM = {hatclosed_p4, hatopen_p4, rim_p4, shaker_p4, cymbal_p4, kick_p4, snare_p4, clap_p4, cowbell_p4, claves_p4, congahigh_p4, congamid_p4, congalow_p4};
+
+const word hatclosed_p4B PROGMEM = 0b0000000000000000;
+const word hatopen_p4B PROGMEM   = 0b0000000000000000;
+const word rim_p4B PROGMEM       = 0b0000000000000000;
+const word shaker_p4B PROGMEM    = 0b0000000000000000;
+const word cymbal_p4B PROGMEM    = 0b0000000000000000;
+const word kick_p4B PROGMEM      = 0b0000000000000000;
+const word snare_p4B PROGMEM     = 0b0000000000000000;
+const word clap_p4B PROGMEM      = 0b0000000000000000;
+const word cowbell_p4B PROGMEM   = 0b0000000000000000;
+const word claves_p4B PROGMEM    = 0b0000000000000000;
+const word congahigh_p4B PROGMEM = 0b0000000000000000;
+const word congamid_p4B PROGMEM  = 0b0000000000000000;
+const word congalow_p4B PROGMEM  = 0b0000000000000000;
+const word pattern4B[] PROGMEM = {hatclosed_p4B, hatopen_p4B, rim_p4B, shaker_p4B, cymbal_p4B, kick_p4B, snare_p4B, clap_p4B, cowbell_p4B, claves_p4B, congahigh_p4B, congamid_p4B, congalow_p4B};
 
 const word hatclosed_p5 PROGMEM  = 0b1111111111111111;
 const word hatopen_p5 PROGMEM    = 0b0000000000000000;
@@ -87,6 +147,21 @@ const word congamid_p5 PROGMEM   = 0b0000000000000000;
 const word congalow_p5 PROGMEM   = 0b0000000000000000;
 const word pattern5[] PROGMEM = {hatclosed_p5, hatopen_p5, rim_p5, shaker_p5, cymbal_p5, kick_p5, snare_p5, clap_p5, cowbell_p5, claves_p5, congahigh_p5, congamid_p5, congalow_p5};
 
+const word hatclosed_p5B PROGMEM = 0b0000000000000000;
+const word hatopen_p5B PROGMEM   = 0b0000000000000000;
+const word rim_p5B PROGMEM       = 0b0000000000000000;
+const word shaker_p5B PROGMEM    = 0b0000000000000000;
+const word cymbal_p5B PROGMEM    = 0b0000000000000000;
+const word kick_p5B PROGMEM      = 0b0000000000000000;
+const word snare_p5B PROGMEM     = 0b0000000000000000;
+const word clap_p5B PROGMEM      = 0b0000000000000000;
+const word cowbell_p5B PROGMEM   = 0b0000000000000000;
+const word claves_p5B PROGMEM    = 0b0000000000000000;
+const word congahigh_p5B PROGMEM = 0b0000000000000000;
+const word congamid_p5B PROGMEM  = 0b0000000000000000;
+const word congalow_p5B PROGMEM  = 0b0000000000000000;
+const word pattern5B[] PROGMEM = {hatclosed_p5B, hatopen_p5B, rim_p5B, shaker_p5B, cymbal_p5B, kick_p5B, snare_p5B, clap_p5B, cowbell_p5B, claves_p5B, congahigh_p5B, congamid_p5B, congalow_p5B};
+
 const word hatclosed_p6 PROGMEM  = 0b0010001100100111;
 const word hatopen_p6 PROGMEM    = 0b0000000000000000;
 const word rim_p6 PROGMEM        = 0b0000000000000000;
@@ -101,6 +176,21 @@ const word congahigh_p6 PROGMEM  = 0b1000000000000000;
 const word congamid_p6 PROGMEM   = 0b0001001000000000;
 const word congalow_p6 PROGMEM   = 0b0000000001000000;
 const word pattern6[] PROGMEM = {hatclosed_p6, hatopen_p6, rim_p6, shaker_p6, cymbal_p6, kick_p6, snare_p6, clap_p6, cowbell_p6, claves_p6, congahigh_p6, congamid_p6, congalow_p6};
+
+const word hatclosed_p6B PROGMEM = 0b0000000000000000;
+const word hatopen_p6B PROGMEM   = 0b0000000000000000;
+const word rim_p6B PROGMEM       = 0b0000000000000000;
+const word shaker_p6B PROGMEM    = 0b0000000000000000;
+const word cymbal_p6B PROGMEM    = 0b0000000000000000;
+const word kick_p6B PROGMEM      = 0b0000000000000000;
+const word snare_p6B PROGMEM     = 0b0000000000000000;
+const word clap_p6B PROGMEM      = 0b0000000000000000;
+const word cowbell_p6B PROGMEM   = 0b0000000000000000;
+const word claves_p6B PROGMEM    = 0b0000000000000000;
+const word congahigh_p6B PROGMEM = 0b0000000000000000;
+const word congamid_p6B PROGMEM  = 0b0000000000000000;
+const word congalow_p6B PROGMEM  = 0b0000000000000000;
+const word pattern6B[] PROGMEM = {hatclosed_p6B, hatopen_p6B, rim_p6B, shaker_p6B, cymbal_p6B, kick_p6B, snare_p6B, clap_p6B, cowbell_p6B, claves_p6B, congahigh_p6B, congamid_p6B, congalow_p6B};
 
 const word hatclosed_p7 PROGMEM  = 0b0000000000000000;
 const word hatopen_p7 PROGMEM    = 0b0000000000000000;
@@ -117,6 +207,21 @@ const word congamid_p7 PROGMEM   = 0b0000000000000000;
 const word congalow_p7 PROGMEM   = 0b0000000000000000;
 const word pattern7[] PROGMEM = {hatclosed_p7, hatopen_p7, rim_p7, shaker_p7, cymbal_p7, kick_p7, snare_p7, clap_p7, cowbell_p7, claves_p7, congahigh_p7, congamid_p7, congalow_p7};
 
+const word hatclosed_p7B PROGMEM = 0b0000000000000000;
+const word hatopen_p7B PROGMEM   = 0b0000000000000000;
+const word rim_p7B PROGMEM       = 0b0000000000000000;
+const word shaker_p7B PROGMEM    = 0b0000000000000000;
+const word cymbal_p7B PROGMEM    = 0b0000000000000000;
+const word kick_p7B PROGMEM      = 0b0000000000000000;
+const word snare_p7B PROGMEM     = 0b0000000000000000;
+const word clap_p7B PROGMEM      = 0b0000000000000000;
+const word cowbell_p7B PROGMEM   = 0b0000000000000000;
+const word claves_p7B PROGMEM    = 0b0000000000000000;
+const word congahigh_p7B PROGMEM = 0b0000000000000000;
+const word congamid_p7B PROGMEM  = 0b0000000000000000;
+const word congalow_p7B PROGMEM  = 0b0000000000000000;
+const word pattern7B[] PROGMEM = {hatclosed_p7B, hatopen_p7B, rim_p7B, shaker_p7B, cymbal_p7B, kick_p7B, snare_p7B, clap_p7B, cowbell_p7B, claves_p7B, congahigh_p7B, congamid_p7B, congalow_p7B};
+
 const word hatclosed_p8 PROGMEM  = 0b1100110011001100;
 const word hatopen_p8 PROGMEM    = 0b0010001000100010;
 const word rim_p8 PROGMEM        = 0b0000000000000000;
@@ -131,6 +236,21 @@ const word congahigh_p8 PROGMEM  = 0b0000000000000000;
 const word congamid_p8 PROGMEM   = 0b0000000000000000;
 const word congalow_p8 PROGMEM   = 0b0000000000000000;
 const word pattern8[] PROGMEM = {hatclosed_p8, hatopen_p8, rim_p8, shaker_p8, cymbal_p8, kick_p8, snare_p8, clap_p8, cowbell_p8, claves_p8, congahigh_p8, congamid_p8, congalow_p8};
+
+const word hatclosed_p8B PROGMEM = 0b0000000000000000;
+const word hatopen_p8B PROGMEM   = 0b0000000000000000;
+const word rim_p8B PROGMEM       = 0b0000000000000000;
+const word shaker_p8B PROGMEM    = 0b0000000000000000;
+const word cymbal_p8B PROGMEM    = 0b0000000000000000;
+const word kick_p8B PROGMEM      = 0b0000000000000000;
+const word snare_p8B PROGMEM     = 0b0000000000000000;
+const word clap_p8B PROGMEM      = 0b0000000000000000;
+const word cowbell_p8B PROGMEM   = 0b0000000000000000;
+const word claves_p8B PROGMEM    = 0b0000000000000000;
+const word congahigh_p8B PROGMEM = 0b0000000000000000;
+const word congamid_p8B PROGMEM  = 0b0000000000000000;
+const word congalow_p8B PROGMEM  = 0b0000000000000000;
+const word pattern8B[] PROGMEM = {hatclosed_p8B, hatopen_p8B, rim_p8B, shaker_p8B, cymbal_p8B, kick_p8B, snare_p8B, clap_p8B, cowbell_p8B, claves_p8B, congahigh_p8B, congamid_p8B, congalow_p8B};
 
 const word hatclosed_p9 PROGMEM  = 0b0000000000000000;
 const word hatopen_p9 PROGMEM    = 0b1000100010001000;
@@ -147,6 +267,21 @@ const word congamid_p9 PROGMEM   = 0b0000000000000000;
 const word congalow_p9 PROGMEM   = 0b0000000000000000;
 const word pattern9[] PROGMEM = {hatclosed_p9, hatopen_p9, rim_p9, shaker_p9, cymbal_p9, kick_p9, snare_p9, clap_p9, cowbell_p9, claves_p9, congahigh_p9, congamid_p9, congalow_p9};
 
+const word hatclosed_p9B PROGMEM = 0b0000000000000000;
+const word hatopen_p9B PROGMEM   = 0b0000000000000000;
+const word rim_p9B PROGMEM       = 0b0000000000000000;
+const word shaker_p9B PROGMEM    = 0b0000000000000000;
+const word cymbal_p9B PROGMEM    = 0b0000000000000000;
+const word kick_p9B PROGMEM      = 0b0000000000000000;
+const word snare_p9B PROGMEM     = 0b0000000000000000;
+const word clap_p9B PROGMEM      = 0b0000000000000000;
+const word cowbell_p9B PROGMEM   = 0b0000000000000000;
+const word claves_p9B PROGMEM    = 0b0000000000000000;
+const word congahigh_p9B PROGMEM = 0b0000000000000000;
+const word congamid_p9B PROGMEM  = 0b0000000000000000;
+const word congalow_p9B PROGMEM  = 0b0000000000000000;
+const word pattern9B[] PROGMEM = {hatclosed_p9B, hatopen_p9B, rim_p9B, shaker_p9B, cymbal_p9B, kick_p9B, snare_p9B, clap_p9B, cowbell_p9B, claves_p9B, congahigh_p9B, congamid_p9B, congalow_p9B};
+
 const word hatclosed_p10 PROGMEM = 0b1101110111011101;
 const word hatopen_p10 PROGMEM   = 0b0000000000000000;
 const word rim_p10 PROGMEM       = 0b0000000000000000;
@@ -162,8 +297,23 @@ const word congamid_p10 PROGMEM  = 0b0000000000000000;
 const word congalow_p10 PROGMEM  = 0b0000000000000000;
 const word pattern10[] PROGMEM = {hatclosed_p10, hatopen_p10, rim_p10, shaker_p10, cymbal_p10, kick_p10, snare_p10, clap_p10, cowbell_p10, claves_p10, congahigh_p10, congamid_p10, congalow_p10};
 
+const word hatclosed_p10B PROGMEM = 0b0000000000000000;
+const word hatopen_p10B PROGMEM  = 0b0000000000000000;
+const word rim_p10B PROGMEM      = 0b0000000000000000;
+const word shaker_p10B PROGMEM   = 0b0000000000000000;
+const word cymbal_p10B PROGMEM   = 0b0000000000000000;
+const word kick_p10B PROGMEM     = 0b0000000000000000;
+const word snare_p10B PROGMEM    = 0b0000000000000000;
+const word clap_p10B PROGMEM     = 0b0000000000000000;
+const word cowbell_p10B PROGMEM  = 0b0000000000000000;
+const word claves_p10B PROGMEM   = 0b0000000000000000;
+const word congahigh_p10B PROGMEM = 0b0000000000000000;
+const word congamid_p10B PROGMEM = 0b0000000000000000;
+const word congalow_p10B PROGMEM = 0b0000000000000000;
+const word pattern10B[] PROGMEM = {hatclosed_p10B, hatopen_p10B, rim_p10B, shaker_p10B, cymbal_p10B, kick_p10B, snare_p10B, clap_p10B, cowbell_p10B, claves_p10B, congahigh_p10B, congamid_p10B, congalow_p10B};
+
 const word hatclosed_p11 PROGMEM = 0b0000000000000000;
-const word hatopen_p11 PROGMEM   = 0b0000000000000000;
+const word hatopen_p11 PROGMEM   = 0b1011101110111010;
 const word rim_p11 PROGMEM       = 0b0000000000000000;
 const word shaker_p11 PROGMEM    = 0b0000000000000000;
 const word cymbal_p11 PROGMEM    = 0b0000000000000000;
@@ -176,6 +326,21 @@ const word congahigh_p11 PROGMEM = 0b0000000000000000;
 const word congamid_p11 PROGMEM  = 0b0000000000000000;
 const word congalow_p11 PROGMEM  = 0b0000000000000000;
 const word pattern11[] PROGMEM = {hatclosed_p11, hatopen_p11, rim_p11, shaker_p11, cymbal_p11, kick_p11, snare_p11, clap_p11, cowbell_p11, claves_p11, congahigh_p11, congamid_p11, congalow_p11};
+
+const word hatclosed_p11B PROGMEM = 0b0000000000000000;
+const word hatopen_p11B PROGMEM  = 0b0000000000000000;
+const word rim_p11B PROGMEM      = 0b0000000000000000;
+const word shaker_p11B PROGMEM   = 0b0000000000000000;
+const word cymbal_p11B PROGMEM   = 0b0000000000000000;
+const word kick_p11B PROGMEM     = 0b0000000000000000;
+const word snare_p11B PROGMEM    = 0b0000000000000000;
+const word clap_p11B PROGMEM     = 0b0000000000000000;
+const word cowbell_p11B PROGMEM  = 0b0000000000000000;
+const word claves_p11B PROGMEM   = 0b0000000000000000;
+const word congahigh_p11B PROGMEM = 0b0000000000000000;
+const word congamid_p11B PROGMEM = 0b0000000000000000;
+const word congalow_p11B PROGMEM = 0b0000000000000000;
+const word pattern11B[] PROGMEM = {hatclosed_p11B, hatopen_p11B, rim_p11B, shaker_p11B, cymbal_p11B, kick_p11B, snare_p11B, clap_p11B, cowbell_p11B, claves_p11B, congahigh_p11B, congamid_p11B, congalow_p11B}; 
 
 const word hatclosed_p12 PROGMEM = 0b1010101010101010;
 const word hatopen_p12 PROGMEM   = 0b0000000000000000;
@@ -192,6 +357,21 @@ const word congamid_p12 PROGMEM  = 0b0000000000000000;
 const word congalow_p12 PROGMEM  = 0b0000000000000000;
 const word pattern12[] PROGMEM = {hatclosed_p12, hatopen_p12, rim_p12, shaker_p12, cymbal_p12, kick_p12, snare_p12, clap_p12, cowbell_p12, claves_p12, congahigh_p12, congamid_p12, congalow_p12};
 
+const word hatclosed_p12B PROGMEM = 0b0000000000000000;
+const word hatopen_p12B PROGMEM  = 0b0000000000000000;
+const word rim_p12B PROGMEM      = 0b0000000000000000;
+const word shaker_p12B PROGMEM   = 0b0000000000000000;
+const word cymbal_p12B PROGMEM   = 0b0000000000000000;
+const word kick_p12B PROGMEM     = 0b0000000000000000;
+const word snare_p12B PROGMEM    = 0b0000000000000000;
+const word clap_p12B PROGMEM     = 0b0000000000000000;
+const word cowbell_p12B PROGMEM  = 0b0000000000000000;
+const word claves_p12B PROGMEM   = 0b0000000000000000;
+const word congahigh_p12B PROGMEM = 0b0000000000000000;
+const word congamid_p12B PROGMEM = 0b0000000000000000;
+const word congalow_p12B PROGMEM = 0b0000000000000000;
+const word pattern12B[] PROGMEM = {hatclosed_p12B, hatopen_p12B, rim_p12B, shaker_p12B, cymbal_p12B, kick_p12B, snare_p12B, clap_p12B, cowbell_p12B, claves_p12B, congahigh_p12B, congamid_p12B, congalow_p12B};
+
 const word hatclosed_p13 PROGMEM = 0b0000000000000000;
 const word hatopen_p13 PROGMEM   = 0b0000000000000000;
 const word rim_p13 PROGMEM       = 0b0000000000000000;
@@ -206,6 +386,21 @@ const word congahigh_p13 PROGMEM = 0b0000000000000000;
 const word congamid_p13 PROGMEM  = 0b0000000000000000;
 const word congalow_p13 PROGMEM  = 0b0000000000000000;
 const word pattern13[] PROGMEM = {hatclosed_p13, hatopen_p13, rim_p13, shaker_p13, cymbal_p13, kick_p13, snare_p13, clap_p13, cowbell_p13, claves_p13, congahigh_p13, congamid_p13, congalow_p13};
+
+const word hatclosed_p13B PROGMEM = 0b0000000000000000;
+const word hatopen_p13B PROGMEM  = 0b0000000000000000;
+const word rim_p13B PROGMEM      = 0b0000000000000000;
+const word shaker_p13B PROGMEM   = 0b0000000000000000;
+const word cymbal_p13B PROGMEM   = 0b0000000000000000;
+const word kick_p13B PROGMEM     = 0b0000000000000000;
+const word snare_p13B PROGMEM    = 0b0000000000000000;
+const word clap_p13B PROGMEM     = 0b0000000000000000;
+const word cowbell_p13B PROGMEM  = 0b0000000000000000;
+const word claves_p13B PROGMEM   = 0b0000000000000000;
+const word congahigh_p13B PROGMEM = 0b0000000000000000;
+const word congamid_p13B PROGMEM = 0b0000000000000000;
+const word congalow_p13B PROGMEM = 0b0000000000000000;
+const word pattern13B[] PROGMEM = {hatclosed_p13B, hatopen_p13B, rim_p13B, shaker_p13B, cymbal_p13B, kick_p13B, snare_p13B, clap_p13B, cowbell_p13B, claves_p13B, congahigh_p13B, congamid_p13B, congalow_p13B}; 
 
 const word hatclosed_p14 PROGMEM = 0b1000100010001000;
 const word hatopen_p14 PROGMEM   = 0b0000000000000000;
@@ -222,6 +417,21 @@ const word congamid_p14 PROGMEM  = 0b0000000000000000;
 const word congalow_p14 PROGMEM  = 0b0000000000000000;
 const word pattern14[] PROGMEM = {hatclosed_p14, hatopen_p14, rim_p14, shaker_p14, cymbal_p14, kick_p14, snare_p14, clap_p14, cowbell_p14, claves_p14, congahigh_p14, congamid_p14, congalow_p14};
 
+const word hatclosed_p14B PROGMEM = 0b0000000000000000;
+const word hatopen_p14B PROGMEM  = 0b0000000000000000;
+const word rim_p14B PROGMEM      = 0b0000000000000000;
+const word shaker_p14B PROGMEM   = 0b0000000000000000;
+const word cymbal_p14B PROGMEM   = 0b0000000000000000;
+const word kick_p14B PROGMEM     = 0b0000000000000000;
+const word snare_p14B PROGMEM    = 0b0000000000000000;
+const word clap_p14B PROGMEM     = 0b0000000000000000;
+const word cowbell_p14B PROGMEM  = 0b0000000000000000;
+const word claves_p14B PROGMEM   = 0b0000000000000000;
+const word congahigh_p14B PROGMEM = 0b0000000000000000;
+const word congamid_p14B PROGMEM = 0b0000000000000000;
+const word congalow_p14B PROGMEM = 0b0000000000000000;
+const word pattern14B[] PROGMEM = {hatclosed_p14B, hatopen_p14B, rim_p14B, shaker_p14B, cymbal_p14B, kick_p14B, snare_p14B, clap_p14B, cowbell_p14B, claves_p14B, congahigh_p14B, congamid_p14B, congalow_p14B};
+
 const word hatclosed_p15 PROGMEM = 0b0000000000000000;
 const word hatopen_p15 PROGMEM   = 0b0000000000000000;
 const word rim_p15 PROGMEM       = 0b0000100000001000;
@@ -237,6 +447,21 @@ const word congamid_p15 PROGMEM  = 0b0100000001000000;
 const word congalow_p15 PROGMEM  = 0b1000010110001000;
 const word pattern15[] PROGMEM = {hatclosed_p15, hatopen_p15, rim_p15, shaker_p15, cymbal_p15, kick_p15, snare_p15, clap_p15, cowbell_p15, claves_p15, congahigh_p15, congamid_p15, congalow_p15};
 
+const word hatclosed_p15B PROGMEM = 0b0000000000000000;
+const word hatopen_p15B PROGMEM  = 0b0000000000000000;
+const word rim_p15B PROGMEM      = 0b0000000000000000;
+const word shaker_p15B PROGMEM   = 0b0000000000000000;
+const word cymbal_p15B PROGMEM   = 0b0000000000000000;
+const word kick_p15B PROGMEM     = 0b0000000000000000;
+const word snare_p15B PROGMEM    = 0b0000000000000000;
+const word clap_p15B PROGMEM     = 0b0000000000000000;
+const word cowbell_p15B PROGMEM  = 0b0000000000000000;
+const word claves_p15B PROGMEM   = 0b0000000000000000;
+const word congahigh_p15B PROGMEM = 0b0000000000000000;
+const word congamid_p15B PROGMEM = 0b0000000000000000;
+const word congalow_p15B PROGMEM = 0b0000000000000000;
+const word pattern15B[] PROGMEM = {hatclosed_p15B, hatopen_p15B, rim_p15B, shaker_p15B, cymbal_p15B, kick_p15B, snare_p15B, clap_p15B, cowbell_p15B, claves_p15B, congahigh_p15B, congamid_p15B, congalow_p15B};
+
 const word hatclosed_p16 PROGMEM = 0b0000000000000000;
 const word hatopen_p16 PROGMEM   = 0b0000000000000000;
 const word rim_p16 PROGMEM       = 0b0000000000000000;
@@ -251,6 +476,21 @@ const word congahigh_p16 PROGMEM = 0b1010000101010000;
 const word congamid_p16 PROGMEM  = 0b0000110000001010;
 const word congalow_p16 PROGMEM  = 0b0000000000000000;
 const word pattern16[] PROGMEM = {hatclosed_p16, hatopen_p16, rim_p16, shaker_p16, cymbal_p16, kick_p16, snare_p16, clap_p16, cowbell_p16, claves_p16, congahigh_p16, congamid_p16, congalow_p16};
+
+const word hatclosed_p16B PROGMEM = 0b0000000000000000;
+const word hatopen_p16B PROGMEM  = 0b0000000000000000;
+const word rim_p16B PROGMEM      = 0b0000000000000000;
+const word shaker_p16B PROGMEM   = 0b0000000000000000;
+const word cymbal_p16B PROGMEM   = 0b0000000000000000;
+const word kick_p16B PROGMEM     = 0b0000000000000000;
+const word snare_p16B PROGMEM    = 0b0000000000000000;
+const word clap_p16B PROGMEM     = 0b0000000000000000;
+const word cowbell_p16B PROGMEM  = 0b0000000000000000;
+const word claves_p16B PROGMEM   = 0b0000000000000000;
+const word congahigh_p16B PROGMEM = 0b0000000000000000;
+const word congamid_p16B PROGMEM = 0b0000000000000000;
+const word congalow_p16B PROGMEM = 0b0000000000000000;
+const word pattern16B[] PROGMEM = {hatclosed_p16B, hatopen_p16B, rim_p16B, shaker_p16B, cymbal_p16B, kick_p16B, snare_p16B, clap_p16B, cowbell_p16B, claves_p16B, congahigh_p16B, congamid_p16B, congalow_p16B};
 
 // this class contains all the information contained in 1 Drummer Boy bar of music excluding sample volumes which are only stored/restored when saving/loading
 class ActivePattern
@@ -319,13 +559,14 @@ const int SIXTEEN_SWITCH_PIN_D = 5;
 char trackVolumes[NUM_TRACKS] = {0}; // char data type range is -128 to 127 which is perfect for volume range of -70 to 10
 
 //--------------------------------------------------------------VARIABLE DECLARATION & INITIALIZATION------------------------------------------------------//
-boolean swingOn = false;
+boolean swingOn = true;
 boolean fillOn = false;
 boolean pauseOn = false;
+boolean pattern_mod = false;
 
 int tempoMS;
 int volume;
-int swingMS = 0;
+int swingMS = 50;
 int tempoBPM;
 
 word beatMaster = 0;
@@ -376,7 +617,7 @@ void setup() {
   setSamples();
   readTempo(1); // read vol and tempo values
   readVolume(1);
-  switchSamples(1);
+  switchSamples(2);
   changePattern(1);
   setTrackVolumes();
 }
@@ -390,7 +631,7 @@ void loop() {
 
   if (!pauseOn) {
     if (seqMetro.check() == 1) {
-//      setSwing();
+      setSwing();
 
       int inverseMaster = 15 - beatMaster;
 
@@ -457,25 +698,47 @@ void transferSamples(Samples &passedSamples){
 }
 
 void changePattern(int p) {
-  if(p == 1) transferPatternMem(pattern1);
-  if(p == 2) transferPatternMem(pattern2);
-  if(p == 3) transferPatternMem(pattern3);
-  if(p == 4) transferPatternMem(pattern4);
+  if (!pattern_mod){
+    if(p == 1) transferPatternMem(pattern1);
+    if(p == 2) transferPatternMem(pattern2);
+    if(p == 3) transferPatternMem(pattern3);
+    if(p == 4) transferPatternMem(pattern4);
 
-  if(p == 5) transferPatternMem(pattern5);
-  if(p == 6) transferPatternMem(pattern6);
-  if(p == 7) transferPatternMem(pattern7);
-  if(p == 8) transferPatternMem(pattern8);
+    if(p == 5) transferPatternMem(pattern5);
+    if(p == 6) transferPatternMem(pattern6);
+    if(p == 7) transferPatternMem(pattern7);
+    if(p == 8) transferPatternMem(pattern8);
 
-  if(p == 9) transferPatternMem(pattern9);
-  if(p == 10) transferPatternMem(pattern10);
-  if(p == 11) transferPatternMem(pattern11);
-  if(p == 12) transferPatternMem(pattern12);
+    if(p == 9) transferPatternMem(pattern9);
+    if(p == 10) transferPatternMem(pattern10);
+    if(p == 11) transferPatternMem(pattern11);
+    if(p == 12) transferPatternMem(pattern12);
 
-  if(p == 13) transferPatternMem(pattern13);
-  if(p == 14) transferPatternMem(pattern14);
-  if(p == 15) transferPatternMem(pattern15);
-  if(p == 16) transferPatternMem(pattern16);
+    if(p == 13) transferPatternMem(pattern13);
+    if(p == 14) transferPatternMem(pattern14);
+    if(p == 15) transferPatternMem(pattern15);
+    if(p == 16) transferPatternMem(pattern16);
+  } else{
+    if(p == 1) transferPatternMem(pattern1B);
+    if(p == 2) transferPatternMem(pattern2B);
+    if(p == 3) transferPatternMem(pattern3B);
+    if(p == 4) transferPatternMem(pattern4B);
+
+    if(p == 5) transferPatternMem(pattern5B);
+    if(p == 6) transferPatternMem(pattern6B);
+    if(p == 7) transferPatternMem(pattern7B);
+    if(p == 8) transferPatternMem(pattern8B);
+
+    if(p == 9) transferPatternMem(pattern9B);
+    if(p == 10) transferPatternMem(pattern10B);
+    if(p == 11) transferPatternMem(pattern11B);
+    if(p == 12) transferPatternMem(pattern12B);
+
+    if(p == 13) transferPatternMem(pattern13B);
+    if(p == 14) transferPatternMem(pattern14B);
+    if(p == 15) transferPatternMem(pattern15B);
+    if(p == 16) transferPatternMem(pattern16B);
+  }
 }
 
 void transferPatternMem(const word memPattern[]){
@@ -512,12 +775,12 @@ void incrementBeatCounters() {
   }
 }
 
-//void setSwing() {
-//  if (swingOn) {
-//    if (beatMaster % 2 == 1)seqMetro.interval(tempoMS - swingMS);
-//    else seqMetro.interval(tempoMS + swingMS);
-//  }
-//}
+void setSwing() {
+  if (swingOn) {
+    if (beatMaster % 2 == 1)seqMetro.interval(tempoMS - swingMS);
+    else seqMetro.interval(tempoMS + swingMS);
+  }
+}
 
 
 //---------------------- Analog -------------------//
@@ -605,9 +868,8 @@ void readSwingSwitch() {
   }
   if (digitalRead(SWING_SWITCH_PIN) == HIGH && swingOn) {
     Serial.println("Swing OFF");
-//    seqMetro.interval(tempoMS);
+    seqMetro.interval(tempoMS);
     swingOn = 0;
-    swingMS = 0;
   }
 }
 
