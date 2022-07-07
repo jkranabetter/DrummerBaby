@@ -555,6 +555,10 @@ const int SIXTEEN_SWITCH_PIN_B = 6;
 const int SIXTEEN_SWITCH_PIN_C = 7;
 const int SIXTEEN_SWITCH_PIN_D = 5;
 
+const int THREE_SWITCH_PIN_A = 10;
+const int THREE_SWITCH_PIN_B = 11;
+const int THREE_SWITCH_PIN_C = 12;
+
 #define NUM_TRACKS 29
 char trackVolumes[NUM_TRACKS] = {0}; // char data type range is -128 to 127 which is perfect for volume range of -70 to 10
 
@@ -571,13 +575,6 @@ int tempoBPM;
 
 word beatMaster = 0;
 int currentPattern;
-
-//------------------------------------------------------------------- FUNCTION PROTOTYPES--------------------------------------------------------------------------------------------------//
-
-// FUNCTION PROTOTYPES // -  The Arduino IDE creates function prototypes for you. Normally, this works quite well. There are some situations, like functions with reference arguments, where it doesn't.
-void checkAnalogIO();
-void checkDigitalIO();
-void fill();
 
 //------------------------------------------------------------------- SETUP --------------------------------------------------------------------------------------------------//
 void setup() {
