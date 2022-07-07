@@ -615,11 +615,104 @@ void setup() {
   delay(100);
 
   setSamples();
+  setTrackVolumes();
+  
   readTempo(1); // read vol and tempo values
   readVolume(1);
   switchSamples(2);
   changePattern(1);
-  setTrackVolumes();
+  
+}
+
+//--------------------------SETUP METHODS--------------------------//
+
+void setSamples(){
+  // SET 808 SAMPLES
+  samples_808.hatclosed = 1;
+  samples_808.hatopen = 2;
+  samples_808.rim = 3;
+  samples_808.shaker = 4;
+  samples_808.cymbal = 5;
+  
+  samples_808.kick = 6;
+  samples_808.snare = 7;
+  samples_808.clap = 8;
+  samples_808.cowbell = 9;
+  
+  samples_808.claves = 10;
+  samples_808.congahigh = 11;
+  samples_808.congamid = 12;
+  samples_808.congalow = 13;
+
+  // MIXED SAMPLES SET
+  samples_mixed.hatclosed = 17;
+  samples_mixed.hatopen = 18;
+  samples_mixed.rim = 26;
+  samples_mixed.shaker = 28;
+  samples_mixed.cymbal = 29;
+  
+  samples_mixed.kick = 19;
+  samples_mixed.snare = 22;
+  samples_mixed.clap = 30;
+  samples_mixed.cowbell = 27;
+  
+  samples_mixed.claves = 21;
+  samples_mixed.congahigh = 23;
+  samples_mixed.congamid = 24;
+  samples_mixed.congalow = 25;
+
+  // SAMPLES 3 TODO
+  samples_3.hatclosed = 31;
+  samples_3.hatopen = 32;
+  samples_3.rim = 33;
+  samples_3.shaker = 34;
+  samples_3.cymbal = 35;
+  
+  samples_3.kick = 36;
+  samples_3.snare = 37;
+  samples_3.clap = 38;
+  samples_3.cowbell = 039;
+  
+  samples_3.claves = 40;
+  samples_3.congahigh = 41;
+  samples_3.congamid = 42;
+  samples_3.congalow = 43;
+}
+
+void setTrackVolumes() {
+  // PRESET VOLUMES FOR EACH SAMPLE
+  trackVolumes[1] = 0; 
+  trackVolumes[2] = 0; 
+  trackVolumes[3] = 0; 
+  trackVolumes[4] = 0; 
+  trackVolumes[5] = 0; 
+  trackVolumes[6] = 0; 
+  trackVolumes[7] = 0; 
+  trackVolumes[8] = -7; 
+  trackVolumes[9] = 0; 
+  trackVolumes[10] = 0;
+  trackVolumes[11] = 0;
+  trackVolumes[12] = 0;
+  trackVolumes[13] = 0;
+  trackVolumes[14] = 0;
+  trackVolumes[15] = 0;
+  trackVolumes[16] = 0;
+  trackVolumes[17] = 0;
+  trackVolumes[18] = 0;
+  trackVolumes[19] = 0;
+  trackVolumes[20] = 0;
+  trackVolumes[21] = 0;
+  trackVolumes[22] = 0;
+  trackVolumes[23] = 0;
+  trackVolumes[24] = 0;
+  trackVolumes[25] = 0;
+  trackVolumes[26] = 0;
+  trackVolumes[27] = 0;
+  trackVolumes[28] = 0;
+  trackVolumes[29] = 0;
+  
+  for ( int i = 0 ; i < NUM_TRACKS ; i++)
+    wTrig.trackGain(i, trackVolumes[i]);
 }
 
 //------------------------------------------------------------------------------------MAIN LOOP------------------------------------------------------------------------//
@@ -882,96 +975,4 @@ void readPauseSwitch() {
     pauseOn = false;
     Serial.println("pause OFF");
   }
-}
-
-//--------------------------SETUP METHODS--------------------------//
-
-void setSamples(){
-  // PRESET VOLUMES FOR EACH SAMPLE
-  trackVolumes[1] = 0; 
-  trackVolumes[2] = 0; 
-  trackVolumes[3] = 0; 
-  trackVolumes[4] = 0; 
-  trackVolumes[5] = 0; 
-  trackVolumes[6] = 0; 
-  trackVolumes[7] = 0; 
-  trackVolumes[8] = -7; 
-  trackVolumes[9] = 0; 
-  trackVolumes[10] = 0;
-  trackVolumes[11] = 0;
-  trackVolumes[12] = 0;
-  trackVolumes[13] = 0;
-  trackVolumes[14] = 0;
-  trackVolumes[15] = 0;
-  trackVolumes[16] = 0;
-  trackVolumes[17] = 0;
-  trackVolumes[18] = 0;
-  trackVolumes[19] = 0;
-  trackVolumes[20] = 0;
-  trackVolumes[21] = 0;
-  trackVolumes[22] = 0;
-  trackVolumes[23] = 0;
-  trackVolumes[24] = 0;
-  trackVolumes[25] = 0;
-  trackVolumes[26] = 0;
-  trackVolumes[27] = 0;
-  trackVolumes[28] = 0;
-  trackVolumes[29] = 0;
-  
-  // SET 808 SAMPLES
-  samples_808.hatclosed = 1;
-  samples_808.hatopen = 2;
-  samples_808.rim = 3;
-  samples_808.shaker = 4;
-  samples_808.cymbal = 5;
-  
-  samples_808.kick = 6;
-  samples_808.snare = 7;
-  samples_808.clap = 8;
-  samples_808.cowbell = 9;
-  
-  samples_808.claves = 10;
-  samples_808.congahigh = 11;
-  samples_808.congamid = 12;
-  samples_808.congalow = 13;
-
-  // MIXED SAMPLES SET
-  samples_mixed.hatclosed = 17;
-  samples_mixed.hatopen = 18;
-  samples_mixed.rim = 26;
-  samples_mixed.shaker = 28;
-  samples_mixed.cymbal = 29;
-  
-  samples_mixed.kick = 19;
-  samples_mixed.snare = 22;
-  samples_mixed.clap = 30;
-  samples_mixed.cowbell = 27;
-  
-  samples_mixed.claves = 21;
-  samples_mixed.congahigh = 23;
-  samples_mixed.congamid = 24;
-  samples_mixed.congalow = 25;
-
-
-  // SAMPLES 3 TODO
-  samples_3.hatclosed = 17;
-  samples_3.hatopen = 18;
-  samples_3.rim = 26;
-  samples_3.shaker = 28;
-  samples_3.cymbal = 29;
-  
-  samples_3.kick = 19;
-  samples_3.snare = 22;
-  samples_3.clap = 30;
-  samples_3.cowbell = 27;
-  
-  samples_3.claves = 21;
-  samples_3.congahigh = 23;
-  samples_3.congamid = 24;
-  samples_3.congalow = 25;
-}
-
-void setTrackVolumes() {
-  for ( int i = 0 ; i < NUM_TRACKS ; i++)
-    wTrig.trackGain(i, trackVolumes[i]);
 }
