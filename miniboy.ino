@@ -1,6 +1,7 @@
 #include <Metro.h>
 #include <wavTrigger.h>
 #include <AltSoftSerial.h>
+#include <avr/sleep.h>
 
 Metro seqMetro(300);        // Sequencer state machine interval timer
 Metro readAnalogInputs(100);      // Read potentiometer values
@@ -340,7 +341,7 @@ const word claves_p11B PROGMEM   = 0b0000000000000000;
 const word congahigh_p11B PROGMEM = 0b0000000000000000;
 const word congamid_p11B PROGMEM = 0b0000000000000000;
 const word congalow_p11B PROGMEM = 0b0000000000000000;
-const word pattern11B[] PROGMEM = {hatclosed_p11B, hatopen_p11B, rim_p11B, shaker_p11B, cymbal_p11B, kick_p11B, snare_p11B, clap_p11B, cowbell_p11B, claves_p11B, congahigh_p11B, congamid_p11B, congalow_p11B}; 
+const word pattern11B[] PROGMEM = {hatclosed_p11B, hatopen_p11B, rim_p11B, shaker_p11B, cymbal_p11B, kick_p11B, snare_p11B, clap_p11B, cowbell_p11B, claves_p11B, congahigh_p11B, congamid_p11B, congalow_p11B};
 
 const word hatclosed_p12 PROGMEM = 0b1010101010101010;
 const word hatopen_p12 PROGMEM   = 0b0000000000000000;
@@ -387,7 +388,7 @@ const word congamid_p13 PROGMEM  = 0b0000000000000000;
 const word congalow_p13 PROGMEM  = 0b0000000000000000;
 const word pattern13[] PROGMEM = {hatclosed_p13, hatopen_p13, rim_p13, shaker_p13, cymbal_p13, kick_p13, snare_p13, clap_p13, cowbell_p13, claves_p13, congahigh_p13, congamid_p13, congalow_p13};
 
-const word hatclosed_p13B PROGMEM =0b0000000000000000;
+const word hatclosed_p13B PROGMEM = 0b0000000000000000;
 const word hatopen_p13B PROGMEM  = 0b0000000000000000;
 const word rim_p13B PROGMEM      = 0b0000000000000000;
 const word shaker_p13B PROGMEM   = 0b1000000000000000;
@@ -397,10 +398,10 @@ const word snare_p13B PROGMEM    = 0b0000000000000000;
 const word clap_p13B PROGMEM     = 0b0000100000001011;
 const word cowbell_p13B PROGMEM  = 0b0000000000000000;
 const word claves_p13B PROGMEM   = 0b0000000000000000;
-const word congahigh_p13B PROGMEM =0b0000000000000000;
+const word congahigh_p13B PROGMEM = 0b0000000000000000;
 const word congamid_p13B PROGMEM = 0b0000000000000000;
 const word congalow_p13B PROGMEM = 0b0000000000000000;
-const word pattern13B[] PROGMEM = {hatclosed_p13B, hatopen_p13B, rim_p13B, shaker_p13B, cymbal_p13B, kick_p13B, snare_p13B, clap_p13B, cowbell_p13B, claves_p13B, congahigh_p13B, congamid_p13B, congalow_p13B}; 
+const word pattern13B[] PROGMEM = {hatclosed_p13B, hatopen_p13B, rim_p13B, shaker_p13B, cymbal_p13B, kick_p13B, snare_p13B, clap_p13B, cowbell_p13B, claves_p13B, congahigh_p13B, congamid_p13B, congalow_p13B};
 
 const word hatclosed_p14 PROGMEM = 0b1000100010001000;
 const word hatopen_p14 PROGMEM   = 0b0000000000000000;
@@ -417,7 +418,7 @@ const word congamid_p14 PROGMEM  = 0b0000000000000000;
 const word congalow_p14 PROGMEM  = 0b0000000000000000;
 const word pattern14[] PROGMEM = {hatclosed_p14, hatopen_p14, rim_p14, shaker_p14, cymbal_p14, kick_p14, snare_p14, clap_p14, cowbell_p14, claves_p14, congahigh_p14, congamid_p14, congalow_p14};
 
-const word hatclosed_p14B PROGMEM =0b1000100010001000;
+const word hatclosed_p14B PROGMEM = 0b1000100010001000;
 const word hatopen_p14B PROGMEM  = 0b0000000000000000;
 const word rim_p14B PROGMEM      = 0b0000000010100100;
 const word shaker_p14B PROGMEM   = 0b0000000000000000;
@@ -427,7 +428,7 @@ const word snare_p14B PROGMEM    = 0b0000100101001001;
 const word clap_p14B PROGMEM     = 0b0000000000000000;
 const word cowbell_p14B PROGMEM  = 0b0010000101000000;
 const word claves_p14B PROGMEM   = 0b0000000000000000;
-const word congahigh_p14B PROGMEM =0b0000000000000000;
+const word congahigh_p14B PROGMEM = 0b0000000000000000;
 const word congamid_p14B PROGMEM = 0b0000000000000000;
 const word congalow_p14B PROGMEM = 0b0000000000000000;
 const word pattern14B[] PROGMEM = {hatclosed_p14B, hatopen_p14B, rim_p14B, shaker_p14B, cymbal_p14B, kick_p14B, snare_p14B, clap_p14B, cowbell_p14B, claves_p14B, congahigh_p14B, congamid_p14B, congalow_p14B};
@@ -501,7 +502,7 @@ class ActivePattern
     word rim = 0b0000000000000000;
     word shaker = 0b0000000000000000;
     word cymbal = 0b0000000000000000;
-    
+
     word kick = 0b0000000000000000;
     word snare = 0b0000000000000000;
     word clap = 0b0000000000000000;
@@ -525,7 +526,7 @@ class Samples
     word rim = 0;
     word shaker = 0;
     word cymbal = 0;
-    
+
     word kick = 0;
     word snare = 0;
     word clap = 0;
@@ -543,17 +544,19 @@ Samples samples_mixed;
 Samples samples_3;
 
 // ------------------------------------------------------------------    DECLARE PINS AND CONSTANTS ------------------------------------------------------------//
-const int TEMPO_PIN = A0;
-const int VOLUME_PIN = A1;
+const int VOLUME_PIN = A0;
+const int TEMPO_PIN = A1;
 
-const int PAUSE_SWITCH_PIN = 2;
-const int SWING_SWITCH_PIN = 3;
-const int FILL_BUTTON_PIN = 4;
+const int POWER_PIN = 2;
+const int PAUSE_SWITCH_PIN = 1;
+const int AB_PIN = 0;
+const int FILL_BUTTON_PIN = 3;
+const int SWING_SWITCH_PIN = 13;
 
-const int SIXTEEN_SWITCH_PIN_A = 4;
-const int SIXTEEN_SWITCH_PIN_B = 6;
-const int SIXTEEN_SWITCH_PIN_C = 7;
-const int SIXTEEN_SWITCH_PIN_D = 5;
+const int SIXTEEN_SWITCH_PIN_A = 6;
+const int SIXTEEN_SWITCH_PIN_B = 7;
+const int SIXTEEN_SWITCH_PIN_C = 5;
+const int SIXTEEN_SWITCH_PIN_D = 4;
 
 const int THREE_SWITCH_PIN_A = 10;
 const int THREE_SWITCH_PIN_B = 11;
@@ -563,32 +566,52 @@ const int THREE_SWITCH_PIN_C = 12;
 char trackVolumes[NUM_TRACKS] = {0}; // char data type range is -128 to 127 which is perfect for volume range of -70 to 10
 
 //--------------------------------------------------------------VARIABLE DECLARATION & INITIALIZATION------------------------------------------------------//
-boolean swingOn = true;
-boolean fillOn = false;
-boolean pauseOn = false;
-boolean pattern_mod = false;
+boolean swingOn;
+boolean stutterOn = false;
+boolean pauseOn;
+boolean pattern_mod;
 
 int tempoMS;
 int volume;
-int swingMS = 50;
+int swingMS;
 int tempoBPM;
 
 word beatMaster = 0;
+word beat = 0;
 int currentPattern;
+int currentSampleSet;
+
+boolean debug = true;
 
 //------------------------------------------------------------------- SETUP --------------------------------------------------------------------------------------------------//
 void setup() {
   // Serial monitor for debugging
-  Serial.begin(9600);
+
+  if (debug) Serial.begin(9600);
 
   pinMode(SIXTEEN_SWITCH_PIN_A, INPUT_PULLUP);
   pinMode(SIXTEEN_SWITCH_PIN_B, INPUT_PULLUP);
   pinMode(SIXTEEN_SWITCH_PIN_C, INPUT_PULLUP);
   pinMode(SIXTEEN_SWITCH_PIN_D, INPUT_PULLUP);
+
+  pinMode(THREE_SWITCH_PIN_A, INPUT_PULLUP);
+  pinMode(THREE_SWITCH_PIN_B, INPUT_PULLUP);
+  pinMode(THREE_SWITCH_PIN_C, INPUT_PULLUP);
+
+  pinMode(POWER_PIN, INPUT_PULLUP);
+  pinMode(PAUSE_SWITCH_PIN, INPUT_PULLUP);
+  pinMode(AB_PIN, INPUT_PULLUP);
+  pinMode(FILL_BUTTON_PIN, INPUT_PULLUP);
+  pinMode(SWING_SWITCH_PIN, INPUT_PULLUP);
+
+  swingOn =  digitalRead(SWING_SWITCH_PIN) == HIGH ? true : false;
+  pattern_mod =  digitalRead(AB_PIN) == HIGH ? true : false;
   
-//  pinMode(PAUSE_SWITCH_PIN, INPUT_PULLUP);
-//  pinMode(SWING_SWITCH_PIN, INPUT_PULLUP);
-//  pinMode(FILL_BUTTON_PIN, INPUT_PULLUP);
+  if (debug){
+    pauseOn =  false;
+  }else{
+    pauseOn =  digitalRead(PAUSE_SWITCH_PIN) == HIGH ? true : false;
+  }
 
   delay(500); // wait for the WAV Trigger to finish reset before trying to send commands.
   wTrig.start(); // WAV Trigger startup at 57600
@@ -601,41 +624,40 @@ void setup() {
   // get version/track info from the wav trigger
   char gWTrigVersion[VERSION_STRING_LEN];    // WAV Trigger version string
   if (wTrig.getVersion(gWTrigVersion, VERSION_STRING_LEN)) {
-    Serial.print(gWTrigVersion);
-    Serial.print("\n");
+    if (debug) Serial.print(gWTrigVersion);
+    if (debug) Serial.print("\n");
     int gNumTracks = wTrig.getNumTracks();
-    Serial.print("Number of tracks = ");
-    Serial.println(gNumTracks);
+    if (debug) Serial.print("Number of tracks = ");
+    if (debug) Serial.println(gNumTracks);
   }
   else
-    Serial.print("WAV Trigger response not available");
+    if (debug) Serial.print("WAV Trigger response not available");
   delay(100);
 
   setSamples();
   setTrackVolumes();
-  
+
   readTempo(1); // read vol and tempo values
   readVolume(1);
-  switchSamples(2);
   changePattern(1);
-  
+  switchSamples(1);
 }
 
 //--------------------------SETUP METHODS--------------------------//
 
-void setSamples(){
+void setSamples() {
   // SET 808 SAMPLES
   samples_808.hatclosed = 1;
   samples_808.hatopen = 2;
   samples_808.rim = 3;
   samples_808.shaker = 4;
   samples_808.cymbal = 5;
-  
+
   samples_808.kick = 6;
   samples_808.snare = 7;
   samples_808.clap = 8;
   samples_808.cowbell = 9;
-  
+
   samples_808.claves = 10;
   samples_808.congahigh = 11;
   samples_808.congamid = 12;
@@ -647,12 +669,12 @@ void setSamples(){
   samples_mixed.rim = 26;
   samples_mixed.shaker = 28;
   samples_mixed.cymbal = 29;
-  
+
   samples_mixed.kick = 19;
   samples_mixed.snare = 22;
   samples_mixed.clap = 30;
   samples_mixed.cowbell = 27;
-  
+
   samples_mixed.claves = 21;
   samples_mixed.congahigh = 23;
   samples_mixed.congamid = 24;
@@ -664,12 +686,12 @@ void setSamples(){
   samples_3.rim = 33;
   samples_3.shaker = 34;
   samples_3.cymbal = 35;
-  
+
   samples_3.kick = 36;
   samples_3.snare = 37;
   samples_3.clap = 38;
-  samples_3.cowbell = 039;
-  
+  samples_3.cowbell = 39;
+
   samples_3.claves = 40;
   samples_3.congahigh = 41;
   samples_3.congamid = 42;
@@ -678,15 +700,15 @@ void setSamples(){
 
 void setTrackVolumes() {
   // PRESET VOLUMES FOR EACH SAMPLE
-  trackVolumes[1] = 0; 
-  trackVolumes[2] = 0; 
-  trackVolumes[3] = 0; 
-  trackVolumes[4] = 0; 
-  trackVolumes[5] = 0; 
-  trackVolumes[6] = 0; 
-  trackVolumes[7] = 0; 
-  trackVolumes[8] = -7; 
-  trackVolumes[9] = 0; 
+  trackVolumes[1] = 0;
+  trackVolumes[2] = 0;
+  trackVolumes[3] = 0;
+  trackVolumes[4] = 0;
+  trackVolumes[5] = 0;
+  trackVolumes[6] = 0;
+  trackVolumes[7] = 0;
+  trackVolumes[8] = -7;
+  trackVolumes[9] = 0;
   trackVolumes[10] = 0;
   trackVolumes[11] = 0;
   trackVolumes[12] = 0;
@@ -707,7 +729,7 @@ void setTrackVolumes() {
   trackVolumes[27] = 0;
   trackVolumes[28] = 0;
   trackVolumes[29] = 0;
-  
+
   for ( int i = 0 ; i < NUM_TRACKS ; i++)
     wTrig.trackGain(i, trackVolumes[i]);
 }
@@ -716,14 +738,14 @@ void setTrackVolumes() {
 
 void loop() {
 
-//  activePattern
-//  activeSamples
+  //  activePattern
+  //  activeSamples
 
   if (!pauseOn) {
     if (seqMetro.check() == 1) {
       setSwing();
 
-      int inverseMaster = 15 - beatMaster;
+      int inverseMaster = 15 - beat;
 
       boolean activeHatClosed = bitRead(activePattern.hatclosed, inverseMaster);
       boolean activeHatOpen = bitRead(activePattern.hatopen, inverseMaster);
@@ -741,35 +763,26 @@ void loop() {
       boolean activeCongaMid = bitRead(activePattern.congamid, inverseMaster);
       boolean activeCongaLow = bitRead(activePattern.congalow, inverseMaster);
 
-      if(activeHatClosed) wTrig.trackPlayPoly(activeSamples.hatclosed);
-      if(activeHatOpen) wTrig.trackPlayPoly(activeSamples.hatopen);
-      if(activeRim) wTrig.trackPlayPoly(activeSamples.rim);
-      if(activeShaker) wTrig.trackPlayPoly(activeSamples.shaker);
-      if(activeCymbal) wTrig.trackPlayPoly(activeSamples.cymbal);
+      if (activeHatClosed) wTrig.trackPlayPoly(activeSamples.hatclosed);
+      if (activeHatOpen) wTrig.trackPlayPoly(activeSamples.hatopen);
+      if (activeRim) wTrig.trackPlayPoly(activeSamples.rim);
+      if (activeShaker) wTrig.trackPlayPoly(activeSamples.shaker);
+      if (activeCymbal) wTrig.trackPlayPoly(activeSamples.cymbal);
 
-      if(activeKick) wTrig.trackPlayPoly(activeSamples.kick);
-      if(activeCSnare) wTrig.trackPlayPoly(activeSamples.snare);
-      if(activeClap) wTrig.trackPlayPoly(activeSamples.clap);
-      if(activeCowbell) wTrig.trackPlayPoly(activeSamples.cowbell);
+      if (activeKick) wTrig.trackPlayPoly(activeSamples.kick);
+      if (activeCSnare) wTrig.trackPlayPoly(activeSamples.snare);
+      if (activeClap) wTrig.trackPlayPoly(activeSamples.clap);
+      if (activeCowbell) wTrig.trackPlayPoly(activeSamples.cowbell);
 
-      if(activeClaves) wTrig.trackPlayPoly(activeSamples.claves);
-      if(activeCongaHigh) wTrig.trackPlayPoly(activeSamples.congahigh);
-      if(activeCongaMid) wTrig.trackPlayPoly(activeSamples.congamid);
-      if(activeCongaLow) wTrig.trackPlayPoly(activeSamples.congalow);
+      if (activeClaves) wTrig.trackPlayPoly(activeSamples.claves);
+      if (activeCongaHigh) wTrig.trackPlayPoly(activeSamples.congahigh);
+      if (activeCongaMid) wTrig.trackPlayPoly(activeSamples.congamid);
+      if (activeCongaLow) wTrig.trackPlayPoly(activeSamples.congalow);
 
       incrementBeatCounters();
     }
-    if (fillOn) fill();
+    if (stutterOn) fill();
   }
-  
-//  
-//  else {
-//    if (digitalRead(PAUSE_SWITCH_PIN) == HIGH && pauseOn) {
-//      pauseOn = false;
-//      seqMetro.reset();
-//      startAtBeat0();
-//    }
-//  }
 
   checkDigitalIO();
   checkAnalogIO();
@@ -777,61 +790,61 @@ void loop() {
 
 //------------------------------------------------------------------------------------LOOP METHODS------------------------------------------------------------------------//
 
-void switchSamples(int s){
-  if(s == 1) transferSamples(samples_808);
-  if(s == 2) transferSamples(samples_mixed);
-  if(s == 3) transferSamples(samples_3);
+void switchSamples(int s) {
+  if (s == 1) transferSamples(samples_808);
+  if (s == 2) transferSamples(samples_mixed);
+  if (s == 3) transferSamples(samples_3);
 }
 
-void transferSamples(Samples &passedSamples){
+void transferSamples(Samples &passedSamples) {
   activeSamples = passedSamples;
 }
 
 void changePattern(int p) {
-  if (!pattern_mod){
-    if(p == 1) transferPatternMem(pattern1);
-    if(p == 2) transferPatternMem(pattern2);
-    if(p == 3) transferPatternMem(pattern3);
-    if(p == 4) transferPatternMem(pattern4);
+  if (!pattern_mod) {
+    if (p == 1) transferPatternMem(pattern1);
+    if (p == 2) transferPatternMem(pattern2);
+    if (p == 3) transferPatternMem(pattern3);
+    if (p == 4) transferPatternMem(pattern4);
 
-    if(p == 5) transferPatternMem(pattern5);
-    if(p == 6) transferPatternMem(pattern6);
-    if(p == 7) transferPatternMem(pattern7);
-    if(p == 8) transferPatternMem(pattern8);
+    if (p == 5) transferPatternMem(pattern5);
+    if (p == 6) transferPatternMem(pattern6);
+    if (p == 7) transferPatternMem(pattern7);
+    if (p == 8) transferPatternMem(pattern8);
 
-    if(p == 9) transferPatternMem(pattern9);
-    if(p == 10) transferPatternMem(pattern10);
-    if(p == 11) transferPatternMem(pattern11);
-    if(p == 12) transferPatternMem(pattern12);
+    if (p == 9) transferPatternMem(pattern9);
+    if (p == 10) transferPatternMem(pattern10);
+    if (p == 11) transferPatternMem(pattern11);
+    if (p == 12) transferPatternMem(pattern12);
 
-    if(p == 13) transferPatternMem(pattern13);
-    if(p == 14) transferPatternMem(pattern14);
-    if(p == 15) transferPatternMem(pattern15);
-    if(p == 16) transferPatternMem(pattern16);
-  } else{
-    if(p == 1) transferPatternMem(pattern1B);
-    if(p == 2) transferPatternMem(pattern2B);
-    if(p == 3) transferPatternMem(pattern3B);
-    if(p == 4) transferPatternMem(pattern4B);
+    if (p == 13) transferPatternMem(pattern13);
+    if (p == 14) transferPatternMem(pattern14);
+    if (p == 15) transferPatternMem(pattern15);
+    if (p == 16) transferPatternMem(pattern16);
+  } else {
+    if (p == 1) transferPatternMem(pattern1B);
+    if (p == 2) transferPatternMem(pattern2B);
+    if (p == 3) transferPatternMem(pattern3B);
+    if (p == 4) transferPatternMem(pattern4B);
 
-    if(p == 5) transferPatternMem(pattern5B);
-    if(p == 6) transferPatternMem(pattern6B);
-    if(p == 7) transferPatternMem(pattern7B);
-    if(p == 8) transferPatternMem(pattern8B);
+    if (p == 5) transferPatternMem(pattern5B);
+    if (p == 6) transferPatternMem(pattern6B);
+    if (p == 7) transferPatternMem(pattern7B);
+    if (p == 8) transferPatternMem(pattern8B);
 
-    if(p == 9) transferPatternMem(pattern9B);
-    if(p == 10) transferPatternMem(pattern10B);
-    if(p == 11) transferPatternMem(pattern11B);
-    if(p == 12) transferPatternMem(pattern12B);
+    if (p == 9) transferPatternMem(pattern9B);
+    if (p == 10) transferPatternMem(pattern10B);
+    if (p == 11) transferPatternMem(pattern11B);
+    if (p == 12) transferPatternMem(pattern12B);
 
-    if(p == 13) transferPatternMem(pattern13B);
-    if(p == 14) transferPatternMem(pattern14B);
-    if(p == 15) transferPatternMem(pattern15B);
-    if(p == 16) transferPatternMem(pattern16B);
+    if (p == 13) transferPatternMem(pattern13B);
+    if (p == 14) transferPatternMem(pattern14B);
+    if (p == 15) transferPatternMem(pattern15B);
+    if (p == 16) transferPatternMem(pattern16B);
   }
 }
 
-void transferPatternMem(const word memPattern[]){
+void transferPatternMem(const word memPattern[]) {
   activePattern.hatclosed = pgm_read_word( &memPattern[0] );
   activePattern.hatopen = pgm_read_word( &memPattern[1] );
   activePattern.rim = pgm_read_word( &memPattern[2] );
@@ -850,19 +863,17 @@ void transferPatternMem(const word memPattern[]){
 }
 
 void fill() {
-  beatMaster = 14;
+  beat = 14;
 }
 
 void startAtBeat0() {
   beatMaster = 0;
+  beat = 0;
 }
 
 void incrementBeatCounters() {
-  if(beatMaster == 15){
-    beatMaster = 0;
-  }else{
-    beatMaster++;
-  }
+  beatMaster = (beatMaster == 15) ? 0 : beatMaster + 1;
+  beat = (beat == 15) ? 0 : beat + 1;
 }
 
 void setSwing() {
@@ -889,7 +900,8 @@ void readVolume(boolean firstCall) {      // read analog input for volume and ma
     volumeLastIntermediate = volumeIntermediate;
     volume = map(volumeIntermediate, 0, 1023, 4, -70);  // -70 to 4 DB is the full range of the wav trigger
     wTrig.masterGain(volume);
-    Serial.print("Volume: "); Serial.println(volume);
+    if (debug) Serial.print("Volume: "); 
+    if (debug) Serial.println(volume);
   }
 }
 
@@ -903,73 +915,126 @@ void readTempo(boolean firstCall) {
     tempoMS = map(tempoIntermediate, 1023, 0, 320, 80);
     seqMetro.interval(tempoMS);
     tempoBPM = 60000 / (tempoMS * 4);   /// ms to BPM conversion, the 4 is there because every DB "beat" is actually an eight note
-    Serial.print("Tempo: "); Serial.println(tempoBPM);
+    swingMS = tempoMS/3;
+    if (debug) Serial.print("Tempo: "); Serial.println(tempoBPM);
   }
 }
 
 //---------------------- Digital -------------------//
 void checkDigitalIO() {
   if (readDigitalInputs.check() == 1) {  // if minumum time has passed the inputs are read
-      read16Switch();
-    
-//    readPauseSwitch();
-//    readSwingSwitch();
-//    readFillButton();
+    read16Switch();
+    read3Switch();
+    if (!debug)readPauseSwitch();
+    readSwingSwitch();
+    readFillButton();
+    if (!debug)readABSwitch();
+    readPowerSwitch();
   }
 }
 
 int read16Switch() {
-  
+
   int pinA = 0;
   int pinB = 0;
   int pinC = 0;
   int pinD = 0;
-  
+
   if ( digitalRead(SIXTEEN_SWITCH_PIN_A) == LOW ) pinA = 1;
   if ( digitalRead(SIXTEEN_SWITCH_PIN_B) == LOW ) pinB = 1;
   if ( digitalRead(SIXTEEN_SWITCH_PIN_C) == LOW ) pinC = 1;
   if ( digitalRead(SIXTEEN_SWITCH_PIN_D) == LOW ) pinD = 1;
 
-  int switch_pattern = 1*pinA + 2*pinB + 4*pinC + 8*pinD + 1;
+  // debugging wiring
+  //Serial.println(String(pinA) + " " + String(pinB) + " " + String(pinC) + " " +  String(pinD));
 
-  if (currentPattern != switch_pattern){
+  int switch_pattern = 1 * pinA + 2 * pinB + 4 * pinC + 8 * pinD + 1;
+
+  if (currentPattern != switch_pattern) {
     currentPattern = switch_pattern;
     changePattern(currentPattern);
-    Serial.print("changing pattern to ");
-    Serial.println(currentPattern);
+    if (debug) Serial.print("changing pattern to ");
+    if (debug) Serial.println(currentPattern);
+  }
+}
+
+int read3Switch() {
+
+  int switch_pattern;
+  switch_pattern = digitalRead(THREE_SWITCH_PIN_A) == LOW ? 1 : switch_pattern;
+  switch_pattern = digitalRead(THREE_SWITCH_PIN_B) == LOW ? 2 : switch_pattern;
+  switch_pattern = digitalRead(THREE_SWITCH_PIN_C) == LOW ? 3 : switch_pattern;
+
+  if (currentSampleSet != switch_pattern) {
+    switchSamples(switch_pattern);
+    currentSampleSet = switch_pattern;
+    if (debug) Serial.print("changing sample set to ");
+    if (debug) Serial.println(currentSampleSet);
   }
 }
 
 void readFillButton() {
-  if ( digitalRead(FILL_BUTTON_PIN) == LOW && !fillOn) {
-    fillOn = true;
-    Serial.println("Fill ON");
+  if ( digitalRead(FILL_BUTTON_PIN) == LOW && !stutterOn) {
+    stutterOn = true;
+    Serial.println("stutter ON");
   }
-  if (digitalRead(FILL_BUTTON_PIN) == HIGH && fillOn && beatMaster == 15) {
-    fillOn = false;
-    Serial.println("Fill OFF");
+  if (digitalRead(FILL_BUTTON_PIN) == HIGH && stutterOn && beatMaster == 15) {
+    stutterOn = false;
+    beat = beatMaster;
+    Serial.println("stutter OFF");
   }
 }
 
 void readSwingSwitch() {
-  if ( digitalRead(SWING_SWITCH_PIN) == LOW && !swingOn) {
-    Serial.println("Swing ON");//
-    swingOn = 1;
+  if ( digitalRead(SWING_SWITCH_PIN) == HIGH && !swingOn) {
+    if (debug) Serial.println("Swing ON");//
+    swingOn = true;
   }
-  if (digitalRead(SWING_SWITCH_PIN) == HIGH && swingOn) {
-    Serial.println("Swing OFF");
+  if (digitalRead(SWING_SWITCH_PIN) == LOW && swingOn) {
+    if (debug) Serial.println("Swing OFF");
     seqMetro.interval(tempoMS);
-    swingOn = 0;
+    swingOn = false;
+  }
+}
+
+void readABSwitch() {
+  if ( digitalRead(AB_PIN) == HIGH && !pattern_mod) {
+    if (debug) Serial.println("Pattern B");//
+    pattern_mod = true;
+    changePattern(currentPattern);
+  }
+  if (digitalRead(AB_PIN) == LOW && pattern_mod) {
+    if (debug) Serial.println("Pattern A");
+    pattern_mod = false;
+    changePattern(currentPattern);
   }
 }
 
 void readPauseSwitch() {
-  if ( digitalRead(PAUSE_SWITCH_PIN) == LOW && !pauseOn) {
+  if ( digitalRead(PAUSE_SWITCH_PIN) == HIGH && !pauseOn) {
     pauseOn = true;
-    Serial.println("pause ON");
+    seqMetro.reset();
+    startAtBeat0();
   }
-  if (digitalRead(PAUSE_SWITCH_PIN) == HIGH && pauseOn) {
+  if (digitalRead(PAUSE_SWITCH_PIN) == LOW && pauseOn) {
     pauseOn = false;
-    Serial.println("pause OFF");
   }
+}
+
+void readPowerSwitch() {
+  // got to sleep
+  if ( digitalRead(POWER_PIN) == HIGH) {
+    wTrig.trackPlayPoly(41);
+    sleep_enable();
+    attachInterrupt(digitalPinToInterrupt(POWER_PIN), wakeUp, LOW);
+    set_sleep_mode(SLEEP_MODE_PWR_DOWN);
+    delay(1000);
+    sleep_cpu();
+  }
+}
+
+void wakeUp(){
+  wTrig.trackPlayPoly(43);
+  sleep_disable();
+  detachInterrupt(digitalPinToInterrupt(POWER_PIN));
 }
