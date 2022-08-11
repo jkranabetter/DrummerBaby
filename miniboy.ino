@@ -562,7 +562,7 @@ const int THREE_SWITCH_PIN_A = 10;
 const int THREE_SWITCH_PIN_B = 11;
 const int THREE_SWITCH_PIN_C = 12;
 
-#define NUM_TRACKS 29
+#define NUM_TRACKS 44
 char trackVolumes[NUM_TRACKS] = {0}; // char data type range is -128 to 127 which is perfect for volume range of -70 to 10
 
 //--------------------------------------------------------------VARIABLE DECLARATION & INITIALIZATION------------------------------------------------------//
@@ -731,6 +731,20 @@ void setTrackVolumes() {
   trackVolumes[27] = 0;
   trackVolumes[28] = 0;
   trackVolumes[29] = 0;
+  trackVolumes[30] = 0;
+  trackVolumes[31] = 0;
+  trackVolumes[32] = 0;
+  trackVolumes[33] = 0;
+  trackVolumes[34] = 0;
+  trackVolumes[35] = 0;
+  trackVolumes[36] = 0;
+  trackVolumes[37] = 0;
+  trackVolumes[38] = 0;
+  trackVolumes[39] = 0;
+  trackVolumes[40] = 0;
+  trackVolumes[41] = 0;
+  trackVolumes[42] = 0;
+  trackVolumes[43] = 0;
 
   for ( int i = 0 ; i < NUM_TRACKS ; i++)
     wTrig.trackGain(i, trackVolumes[i]);

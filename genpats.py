@@ -1,3 +1,9 @@
+'''
+Script to generate the lengthy pattern definition section.
+
+Joshua K 2022
+'''
+
 patnames = ['hatclosed', 'hatopen', 'rim', 'shaker', 'cymbal', 'kick', 'snare', 'clap', 'cowbell', 'claves', 'congahigh', 'congamid', 'congalow']
 
 for number in range(1,17):
