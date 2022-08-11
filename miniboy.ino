@@ -581,7 +581,7 @@ word beat = 0;
 int currentPattern;
 int currentSampleSet;
 
-boolean debug = true;
+boolean debug = false;
 
 //------------------------------------------------------------------- SETUP --------------------------------------------------------------------------------------------------//
 void setup() {
@@ -639,8 +639,10 @@ void setup() {
 
   readTempo(1); // read vol and tempo values
   readVolume(1);
-  changePattern(1);
-  switchSamples(1);
+
+  // play startup sound
+  wTrig.trackPlayPoly(100);
+  delay(2000);
 }
 
 //--------------------------SETUP METHODS--------------------------//
@@ -978,7 +980,7 @@ void readFillButton() {
     stutterOn = true;
     Serial.println("stutter ON");
   }
-  if (digitalRead(FILL_BUTTON_PIN) == HIGH && stutterOn && beatMaster == 15) {
+  if (digitalRead(FILL_BUTTON_PIN) == HIGH && stutterOn && beatMaster == 0) {
     stutterOn = false;
     beat = beatMaster;
     Serial.println("stutter OFF");
