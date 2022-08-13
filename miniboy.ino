@@ -570,6 +570,7 @@ boolean swingOn;
 boolean stutterOn = false;
 boolean pauseOn;
 boolean pattern_mod;
+boolean wakeupDelayFlag = false;
 
 int tempoMS;
 int volume;
@@ -643,6 +644,8 @@ void setup() {
   // play startup sound
   wTrig.trackPlayPoly(100);
   delay(2000);
+  seqMetro.reset();
+  startAtBeat0();
 }
 
 //--------------------------SETUP METHODS--------------------------//
@@ -758,6 +761,15 @@ void loop() {
   //  activeSamples
 
   if (!pauseOn) {
+
+    // delay the machine for a few seconds after waking up from sleep
+    if (wakeupDelayFlag){
+      delay(2000);
+      seqMetro.reset();
+      startAtBeat0();
+      wakeupDelayFlag = false;
+    }
+    
     if (seqMetro.check() == 1) {
       setSwing();
 
@@ -1050,7 +1062,8 @@ void readPowerSwitch() {
 }
 
 void wakeUp(){
-  wTrig.trackPlayPoly(43);
   sleep_disable();
   detachInterrupt(digitalPinToInterrupt(POWER_PIN));
+  wTrig.trackPlayPoly(100);
+  wakeupDelayFlag = true;
 }
