@@ -13,7 +13,7 @@ wavTrigger wTrig;             // Our WAV Trigger object
 
 //----------------------------------------------------------------------------------PATTERN CREATION-----------------------------------------------------------------------------//
 // Use the congas patterns for toms too, which you can switch out with the kit selection
-const word hatclosed_p1 PROGMEM  = 0b1010100010101000;
+const word hatclosed_p1 PROGMEM  = 0b1111111111111111;
 const word hatopen_p1 PROGMEM    = 0b0000001000000010;
 const word rim_p1 PROGMEM        = 0b0000100000001000;
 const word shaker_p1 PROGMEM     = 0b0000000000000000;
@@ -21,7 +21,7 @@ const word cymbal_p1 PROGMEM     = 0b0000000000000000;
 const word kick_p1 PROGMEM       = 0b1000000100000000;
 const word snare_p1 PROGMEM      = 0b0000000000000000;
 const word clap_p1 PROGMEM       = 0b0000000000000000;
-const word cowbell_p1 PROGMEM    = 0b1001001000000000;
+const word cowbell_p1 PROGMEM    = 0b1001001001001001;
 const word claves_p1 PROGMEM     = 0b0000000000000000;
 const word congahigh_p1 PROGMEM  = 0b0000000000000100;
 const word congamid_p1 PROGMEM   = 0b0000000000000010;
@@ -549,9 +549,9 @@ const int TEMPO_PIN = A1;
 
 const int POWER_PIN = 2;
 const int PAUSE_SWITCH_PIN = 1;
-const int AB_PIN = 0;
+const int AB_PIN = 13;
 const int FILL_BUTTON_PIN = 3;
-const int SWING_SWITCH_PIN = 13;
+const int SWING_SWITCH_PIN = 0;
 
 const int SIXTEEN_SWITCH_PIN_A = 6;
 const int SIXTEEN_SWITCH_PIN_B = 7;
@@ -582,13 +582,13 @@ word beat = 0;
 int currentPattern;
 int currentSampleSet;
 
-boolean debug = false;
+boolean DEBUG = false;
 
 //------------------------------------------------------------------- SETUP --------------------------------------------------------------------------------------------------//
 void setup() {
   // Serial monitor for debugging
 
-  if (debug) Serial.begin(9600);
+  if (DEBUG) Serial.begin(9600);
 
   pinMode(SIXTEEN_SWITCH_PIN_A, INPUT_PULLUP);
   pinMode(SIXTEEN_SWITCH_PIN_B, INPUT_PULLUP);
@@ -608,10 +608,9 @@ void setup() {
   swingOn =  digitalRead(SWING_SWITCH_PIN) == HIGH ? true : false;
   pattern_mod =  digitalRead(AB_PIN) == HIGH ? true : false;
   
-  if (debug){
+  if (DEBUG){
     pauseOn =  false;
-  }else{
-    pauseOn =  digitalRead(PAUSE_SWITCH_PIN) == HIGH ? true : false;
+    swingOn = false;
   }
 
   delay(500); // wait for the WAV Trigger to finish reset before trying to send commands.
@@ -625,14 +624,14 @@ void setup() {
   // get version/track info from the wav trigger
   char gWTrigVersion[VERSION_STRING_LEN];    // WAV Trigger version string
   if (wTrig.getVersion(gWTrigVersion, VERSION_STRING_LEN)) {
-    if (debug) Serial.print(gWTrigVersion);
-    if (debug) Serial.print("\n");
+    if (DEBUG) Serial.print(gWTrigVersion);
+    if (DEBUG) Serial.print("\n");
     int gNumTracks = wTrig.getNumTracks();
-    if (debug) Serial.print("Number of tracks = ");
-    if (debug) Serial.println(gNumTracks);
+    if (DEBUG) Serial.print("Number of tracks = ");
+    if (DEBUG) Serial.println(gNumTracks);
   }
   else
-    if (debug) Serial.print("WAV Trigger response not available");
+    if (DEBUG) Serial.print("WAV Trigger response not available");
   delay(100);
 
   setSamples();
@@ -928,8 +927,8 @@ void readVolume(boolean firstCall) {      // read analog input for volume and ma
     volumeLastIntermediate = volumeIntermediate;
     volume = map(volumeIntermediate, 0, 1023, 4, -70);  // -70 to 4 DB is the full range of the wav trigger
     wTrig.masterGain(volume);
-    if (debug) Serial.print("Volume: "); 
-    if (debug) Serial.println(volume);
+    if (DEBUG) Serial.print("Volume: "); 
+    if (DEBUG) Serial.println(volume);
   }
 }
 
@@ -944,7 +943,7 @@ void readTempo(boolean firstCall) {
     seqMetro.interval(tempoMS);
     tempoBPM = 60000 / (tempoMS * 4);   /// ms to BPM conversion, the 4 is there because every DB "beat" is actually an eight note
     swingMS = tempoMS/3;
-    if (debug) Serial.print("Tempo: "); Serial.println(tempoBPM);
+    if (DEBUG) Serial.print("Tempo: "); Serial.println(tempoBPM);
   }
 }
 
@@ -953,10 +952,10 @@ void checkDigitalIO() {
   if (readDigitalInputs.check() == 1) {  // if minumum time has passed the inputs are read
     read16Switch();
     read3Switch();
-    if (!debug)readPauseSwitch();
-    readSwingSwitch();
+    if (!DEBUG)readPauseSwitch();
+    if (!DEBUG)readSwingSwitch();
     readFillButton();
-    if (!debug)readABSwitch();
+    readABSwitch();
     readPowerSwitch();
   }
 }
@@ -981,8 +980,8 @@ int read16Switch() {
   if (currentPattern != switch_pattern) {
     currentPattern = switch_pattern;
     changePattern(currentPattern);
-    if (debug) Serial.print("changing pattern to ");
-    if (debug) Serial.println(currentPattern);
+    if (DEBUG) Serial.print("changing pattern to ");
+    if (DEBUG) Serial.println(currentPattern);
   }
 }
 
@@ -996,8 +995,8 @@ int read3Switch() {
   if (currentSampleSet != switch_pattern) {
     switchSamples(switch_pattern);
     currentSampleSet = switch_pattern;
-    if (debug) Serial.print("changing sample set to ");
-    if (debug) Serial.println(currentSampleSet);
+    if (DEBUG) Serial.print("changing sample set to ");
+    if (DEBUG) Serial.println(currentSampleSet);
   }
 }
 
@@ -1015,11 +1014,11 @@ void readFillButton() {
 
 void readSwingSwitch() {
   if ( digitalRead(SWING_SWITCH_PIN) == HIGH && !swingOn) {
-    if (debug) Serial.println("Swing ON");//
+    if (DEBUG) Serial.println("Swing ON");//
     swingOn = true;
   }
   if (digitalRead(SWING_SWITCH_PIN) == LOW && swingOn) {
-    if (debug) Serial.println("Swing OFF");
+    if (DEBUG) Serial.println("Swing OFF");
     seqMetro.interval(tempoMS);
     swingOn = false;
   }
@@ -1027,12 +1026,12 @@ void readSwingSwitch() {
 
 void readABSwitch() {
   if ( digitalRead(AB_PIN) == HIGH && !pattern_mod) {
-    if (debug) Serial.println("Pattern B");//
+    if (DEBUG) Serial.println("Pattern B");//
     pattern_mod = true;
     changePattern(currentPattern);
   }
   if (digitalRead(AB_PIN) == LOW && pattern_mod) {
-    if (debug) Serial.println("Pattern A");
+    if (DEBUG) Serial.println("Pattern A");
     pattern_mod = false;
     changePattern(currentPattern);
   }

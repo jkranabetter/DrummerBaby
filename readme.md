@@ -1,6 +1,8 @@
 # MiniBoy Drum Machine
 
-The Miniboy uses a standard [Arduino](https://store.arduino.cc/products/arduino-uno-rev3s) and a [Wav Trigger](https://robertsonics.com/wav-trigger/) to create funky rhythms at the flip of a switch.
+The Miniboy uses a standard [Arduino](https://store.arduino.cc/products/arduino-uno-rev3s) and a [Wav Trigger](https://robertsonics.com/wav-trigger/) to create drum rhythms. Its a simpler version of the DrummerBoy that incorperates 32 preprogrammed beats, and three selectable drum sets.
+
+![your-pic-caption-name](front.jpg)
 
 ## Replacing Sounds
 Sound files must be:
@@ -67,3 +69,9 @@ After Programming:
 3. Connect the power adapter again
 
  **Debug Mode**: While programming, you can still run the machine, but you will lose functionality in the A/B selection and pausing switches. Turn debug mode on while programming and running the machine from the USB port. Make sure to turn debug mode back off afterward or else the two switch pins will be unresponsive. 
+
+ **Adjusting swing**
+ To adjust swing, just change line 946 to your target ratio.
+ ```
+     swingMS = tempoMS/3;
+```
