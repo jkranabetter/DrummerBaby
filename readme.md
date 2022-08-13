@@ -75,3 +75,5 @@ After Programming:
  ```
      swingMS = tempoMS/3;
 ```
+
+![your-pic-caption-name](back.jpg)
