@@ -1,6 +1,0 @@
-greem = tip
-red = ring 
-bl = sleeve
-
-g t
-r b

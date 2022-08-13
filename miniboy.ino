@@ -1029,11 +1029,11 @@ void readABSwitch() {
 void readPauseSwitch() {
   if ( digitalRead(PAUSE_SWITCH_PIN) == HIGH && !pauseOn) {
     pauseOn = true;
-    seqMetro.reset();
-    startAtBeat0();
   }
   if (digitalRead(PAUSE_SWITCH_PIN) == LOW && pauseOn) {
     pauseOn = false;
+    seqMetro.reset();
+    startAtBeat0();
   }
 }
 
