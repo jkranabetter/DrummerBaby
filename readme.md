@@ -1,6 +1,6 @@
-# MiniBoy Drum Machine
+# DrummerBaby Drum Machine
 
-The Miniboy uses a standard [Arduino](https://store.arduino.cc/products/arduino-uno-rev3s) and a [Wav Trigger](https://robertsonics.com/wav-trigger/) to create drum rhythms. Its a simpler version of the DrummerBoy that incorperates 32 preprogrammed beats, and three selectable drum sets.
+The DrummerBaby uses a standard [Arduino](https://store.arduino.cc/products/arduino-uno-rev3s) and a [Wav Trigger](https://robertsonics.com/wav-trigger/) to create drum rhythms. Its a simpler version of the DrummerBoy that incorperates 32 preprogrammed beats, and three selectable drum sets.
 
 ![your-pic-caption-name](front.jpg)
 
